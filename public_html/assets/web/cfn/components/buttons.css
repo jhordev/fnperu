@@ -1,0 +1,135 @@
+/* ===== BUTTONS ===== */
+.button {
+    font-size: 15px;
+    background-color: rgb(113, 255, 47);
+    border: 1px solid #00014b;
+    padding: 2px 20px 4px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    color: #00014b;
+}
+
+.btn_cursos {
+    font-size: 14px;
+    padding: 17px 40px;
+    background-color: #fb2056;
+    border-radius: 5px;
+    margin-right: 35px;
+    font-weight: 600;
+    color: white;
+}
+
+.btn_talleres {
+    font-size: 14px;
+    padding: 17px 40px;
+    background-color: #004bff;
+    border-radius: 5px;
+    margin-left: 35px;
+    font-weight: 600;
+    color: white;
+}
+
+.btn_precio_big {
+    box-shadow: 6px 7px 0 0 rgba(94.5, 94.5, 94.5, 0.5);
+}
+
+#btn_matricula {
+    padding: 10px 0;
+    font-weight: 700;
+    background-color: #2bb900;
+    color: white;
+}
+
+#btn_submit {
+    background-color: #e70808;
+    color: white;
+    padding: 17px 40px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: none;
+    font-weight: 700;
+}
+
+#seccion_main a.btn_whatsapp_main {
+    background-color: #3ba64c;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 6px 30px;
+    color: white;
+    font-size: 14px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+#seccion_main a.btn_correo_main {
+    background-color: #08496f;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 6px 30px;
+    color: white;
+    font-size: 14px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+@media (max-width: 650px) {
+    #seccion_main a.btn_whatsapp_main {
+        display: block;
+        margin-right: 0;
+        margin-left: 0 !important;
+        padding: 7px;
+        margin-bottom: 7px;
+        text-align: center;
+    }
+
+    #seccion_main a.btn_correo_main {
+        display: block;
+        margin-left: 0 !important;
+        padding: 7px;
+        text-align: center;
+    }
+
+    #btn_matricula {
+        padding: 7px;
+    }
+
+    #seccion_lateral .btn_precio_big {
+        font-size: 22px;
+    }
+
+    #btn_submit {
+        padding: 10px;
+        display: block;
+        width: 100%;
+    }
+}
+
+@media (max-width: 450px) {
+    #seccion_lateral .btn_precio_big {
+        width: 100%;
+        padding: 10px !important;
+    }
+}
+
+@media (max-width: 1100px) {
+    .btn_cursos {
+        padding: 14px 30px;
+    }
+
+    .btn_talleres {
+        padding: 14px 30px;
+    }
+}
+
+@media (max-width: 380px) {
+    .btn_cursos {
+        padding: 7px;
+        margin-right: 0;
+    }
+
+    .btn_talleres {
+        padding: 7px;
+        margin-top: 10px;
+        margin-left: 0;
+    }
+}

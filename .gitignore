@@ -1,0 +1,59 @@
+# ============================================
+# FN PERU - .gitignore
+# ============================================
+
+# --- Entorno y Configuraciones ---
+*.env
+.env
+.env.*
+config.php
+*.local
+
+# --- Base de datos ---
+db_backups/*.sql
+db_backups/*.sql.gz
+*.sql
+*.gz
+
+# --- Moodle: datos y cache ---
+campus/moodledata/
+campus/localcache/
+campus/muc/
+campus/vendor/
+campus/node_modules/
+
+# --- Archivos del sistema ---
+__MACOSX/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.htaccess
+
+# --- Dependencias de terceros (si se instalan via composer/npm) ---
+node_modules/
+vendor/
+
+# --- IDE y editores ---
+.vscode/
+.idea/
+*.sublime-*
+.vs/
+*.code-workspace
+
+# --- Logs y errores ---
+logs/
+*.log
+error_log
+errors/
+
+# --- Archivos temporales ---
+tmp/
+temp/
+cache/
+
+# --- Copias de seguridad locales ---
+*.bak
+*.backup
+*.old

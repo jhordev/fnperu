@@ -1,0 +1,208 @@
+#header_top_curso {
+    color: white;
+}
+
+#header_top_curso p {
+    color: white;
+}
+
+#border_title_curso {
+    width: 150px;
+    border-bottom: 2px solid red;
+}
+
+#header_top_curso #container_data_curso {
+    width: 60%;
+    padding: 16px 30px 16px 0px;
+}
+
+#header_top_curso #container_img_principal {
+    width: 40%;
+    text-align: right;
+    padding: 16px 0 16px 12px;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+#header_top_curso #container_img_principal > div {
+    align-items: center;
+}
+
+#header_top_curso #container_img_principal img {
+    max-height: 350px;
+    max-width: 100%;
+}
+
+#seccion_main {
+    width: calc(100% - 380px);
+    padding: 0 12px 0 0;
+}
+
+#seccion_main a.btn_whatsapp_main {
+    background-color: #3ba64c;
+    font-weight: 600;
+	text-decoration: none;
+    padding: 10px 30px;
+    color: white;
+    font-size: 14px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+#seccion_main a.btn_correo_main {
+    background-color: #08496f;
+    font-weight: 600;
+	text-decoration: none;
+    padding: 10px 30px;
+    color: white;
+    font-size: 14px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+#seccion_lateral {
+    width: 380px;
+    padding: 0 0 0 12px;
+}
+
+#seccion_lateral > .card {
+    background-color: #F3F3F3;
+}
+
+#seccion_lateral .btn_precio_big {
+    box-shadow: 6px 7px 0px 0px rgba(94.5, 94.5, 94.5, 0.5);
+}
+
+#header_top_curso #container_data_curso .text_introduccion_uno {
+    min-height: 90px;
+}
+
+#btn_matricula {
+    padding: 10px 0;
+    font-weight: 700;
+    background-color: #2bb900;
+    color: white;
+}
+
+#seccion_lateral .card_medios_pago {
+    border: 1px solid rgb(179, 179, 179);
+}
+
+#seccion_lateral .card-header {
+    border-bottom: 1px solid rgb(179, 179, 179);
+}
+
+.bordecito_minimal {
+    border: 1px solid red;
+    width: 50px;
+    margin: 20px 0;
+}
+
+.bordecito_minimal_main {
+    border: 1px solid red;
+    width: 100px;
+}
+
+.background_card_body {
+    background-color: #fafafa;
+}
+
+@media (max-width: 1100px) 
+{
+    #header_top_curso #container_data_curso {
+        width: 100%;
+        padding: 0px 0px 16px 0px !important;
+    }
+
+    #title_curso {
+        font-size: 23px !important;
+    }
+
+    #header_top_curso #container_data_curso .text_introduccion_uno {
+        min-height: auto;
+    }
+
+    #container_data_curso .fecha_inicio {
+        font-size: 18px;
+        padding-bottom: 0px !important;
+    }
+
+    #container_data_curso .incluye_certificado {
+        font-size: 18px;
+        padding-bottom: 0px !important;
+    }
+    
+    #header_top_curso #container_img_principal {
+        justify-content: center;
+        width: 100%;
+        max-height: 350px;
+        margin-bottom: 16px;
+        padding: 0 !important;
+    }
+    
+    #header_top_curso #container_img_principal > div {
+        text-align: center;
+    }
+
+    #seccion_main {
+        width: 100%;
+        padding: 0;
+    }
+
+    #seccion_lateral {
+        width: 100%;
+        padding: 0;
+        margin-top: 1.5rem;
+    }
+
+    #seccion_lateral .container_facebook {
+        margin: auto;
+        width: 400px;
+        overflow: hidden    ;
+    }
+}
+
+@media (max-width: 650px) 
+{
+    #seccion_main a.btn_whatsapp_main {
+        display: block;
+        margin-right: 0;
+        padding: 7px;
+        margin-bottom: 7px;
+    }
+
+    #seccion_main a.btn_correo_main {
+        display: block;
+        margin-left: 0;
+        padding: 7px;
+    }
+
+    #btn_matricula {
+        padding: 7px;
+    }
+
+    #seccion_lateral .btn_precio_big {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 500px) 
+{
+    #seccion_lateral .container_facebook {
+        width: 100%;
+    }
+}
+
+@media (max-width: 450px) 
+{
+    #header_top_curso .link_brochure {
+        width: 100%;
+        padding: 7px !important;
+    }
+
+    #seccion_lateral .btn_precio_big {
+        width: 100%;
+        padding: 10px !important;
+    }
+}

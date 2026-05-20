@@ -1,0 +1,82 @@
+/* ===== BADGES ===== */
+.matriculas_abiertas {
+    color: #039B67;
+}
+
+.div_for_primiun {
+    background-color: #05b848;
+    color: white;
+    text-align: center;
+    padding: 2px;
+}
+
+.div_for_inscribete {
+    background-color: #005fff;
+    color: white;
+    padding: 2px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.div_for_precio {
+    width: 110px;
+    padding: 0 0 0 0;
+    font-size: 20px;
+    background-color: #ff3a06;
+    font-weight: 600;
+    color: white;
+}
+
+.div_for_bloque {
+    width: calc(100% - 110px);
+}
+
+.color-info {
+    color: #09b5d8;
+}
+
+.color-info-dark {
+    color: #00738a;
+}
+
+.color-warning {
+    color: rgb(187, 140, 0);
+}
+
+.call-to-action .inner-content {
+    margin-top: 60px;
+    padding: 30px;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+}
+
+.call-to-action .inner-content h4 {
+    font-size: 17px;
+    color: #1a6692;
+    margin-bottom: 15px;
+}
+
+.call-to-action .inner-content em {
+    font-style: normal;
+    font-weight: 700;
+}
+
+.call-to-action .inner-content .col-md-4 {
+    text-align: right;
+}
+
+.call-to-action .inner-content .filled-button {
+    margin-top: 12px;
+}
+
+@media (max-width: 768px) {
+    .call-to-action .inner-content {
+        text-align: center;
+    }
+
+    .call-to-action .inner-content .filled-button {
+        text-align: center;
+        width: 100%;
+        margin-top: 20px;
+    }
+}

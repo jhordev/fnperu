@@ -1,0 +1,36 @@
+name: Deploy to Hostinger FTP
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy to FTP
+        uses: samKirkland/ftp-deploy@4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./fnperu-main/
+          server-dir: ${{ secrets.FTP_SERVER_DIR }}
+          exclude: |
+            .git/** .DS_Store Thumbs.db
+            db_backups/**
+            campus/moodledata/**
+            campus/localcache/**
+            campus/muc/**
+            campus/vendor/**
+            campus/node_modules/**
+            node_modules/** vendor/**
+            __MACOSX/** .vscode/** .idea/**
+            *.log logs/**
+            tmp/** cache/** temp/**
+            *.bak *.backup *.old
+            .htaccess

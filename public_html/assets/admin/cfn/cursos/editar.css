@@ -1,0 +1,138 @@
+#input_edit_nombre {
+    width: 600px;
+    position: relative;
+}
+
+@media (max-width: 1325px) 
+{
+    #input_edit_nombre {
+        width: calc(100% - 400px);
+    }
+}
+
+#input_edit_nombre #charater_input_name {
+    position: absolute;
+    top: 3px;
+    right: 20px;
+}
+
+#input_edit_nombre input {
+    padding-right: 75px;
+}
+
+#input_video_nombre {
+    width: 600px;
+    position: relative;
+}
+
+@media (max-width: 1325px) 
+{
+    #input_video_nombre {
+        width: calc(100% - 400px);
+    }
+}
+
+#input_video_nombre #charater_input_video {
+    position: absolute;
+    top: 3px;
+    right: 20px;
+}
+
+#input_video_nombre input {
+    padding-right: 75px;
+}
+
+.ocultar_drag {
+    opacity: 0;
+}
+
+.material_each {
+    position: relative;
+}
+
+.material_each:hover {
+    border-color: rgb(141, 141, 255) !important;
+}
+
+.material_each .btn_delete_material {
+    position: absolute;
+    top: 5px;
+    width: 30px;
+    right: 0;
+    text-align: center;
+    padding: 3px 0 5px 0;
+    font-size: 12px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    cursor: pointer;
+}
+
+.indicador_each {
+    position: relative;
+}
+
+.indicador_each:hover {
+    border-color: rgb(141, 141, 255) !important;
+}
+
+.indicador_each .btn_delete_indicador {
+    position: absolute;
+    top: 5px;
+    width: 30px;
+    right: 0;
+    text-align: center;
+    padding: 3px 0 5px 0;
+    font-size: 12px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    cursor: pointer;
+}
+
+.bienes_each {
+    position: relative;
+}
+
+.bienes_each:hover {
+    border-color: rgb(141, 141, 255) !important;
+}
+
+.bienes_each .btn_delete_bien {
+    position: absolute;
+    top: 5px;
+    width: 30px;
+    right: 0;
+    text-align: center;
+    padding: 3px 0 5px 0;
+    font-size: 12px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    cursor: pointer;
+}
+
+.accordion-button.for_mod[aria-expanded="true"] {
+    border-bottom: 1px solid rgb(221, 221, 221) !important;
+    background-color: #e7f1ff !important;
+    font-weight: 600;
+}
+
+.accordion-button.for_mod .btn_new_indicador, .accordion-button.for_mod .btn_delete_modulo {
+    display: none;
+}
+
+.accordion-button.for_mod[aria-expanded="true"] .btn_new_indicador, .accordion-button.for_mod[aria-expanded="true"] .btn_delete_modulo {
+    display: block;
+}
+
+.accordion-item_modulos {
+    border: 1px solid rgb(161, 161, 161);
+}
+
+.accordion-item_modulos:hover {
+    border: 1px solid rgb(0, 47, 255);
+    border-bottom: 2px solid rgb(0, 47, 255);
+}
+
+.cantidad_indicadores {
+    position: absolute;
+    right: 50px;
+}

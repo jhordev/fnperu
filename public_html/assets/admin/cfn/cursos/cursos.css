@@ -1,0 +1,10 @@
+#cursos_table tr td:nth-child(4) {
+    padding-left: 0px;
+}
+
+@media (max-width: 1600px) 
+{
+    #cursos_table tr td:nth-child(5), #cursos_table tr th:nth-child(5) {
+        display: none;
+    }
+}

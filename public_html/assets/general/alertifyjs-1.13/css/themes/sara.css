@@ -1,0 +1,57 @@
+.alertify .ajs-dialog .ajs-body .ajs-content {
+    padding: 16px 0px;
+}
+
+.alertify .ajs-dialog .ajs-footer .ajs-button.ajs-ok {
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 4px .75rem;
+    font-size: 15px;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    background-color: #eff7ff;
+    border-color: #d6d6d6;
+    text-transform: none;
+}
+
+.alertify .ajs-dialog .ajs-footer .ajs-button.ajs-ok:hover {
+    color: #000;
+    background-color: #e6ecf1;
+    border-color: #dbdbdb;
+}
+
+.alertify .ajs-dialog .ajs-footer .ajs-button.ajs-ok:focus-visible {
+    outline: none;
+}
+
+.alertify .ajs-footer .ajs-buttons .ajs-button {
+    min-height: 30px;
+}
+
+.alertify .ajs-footer {
+    padding: 0px 4px;
+}
+
+.alertify .ajs-commands button.ajs-close {
+    background-image: none;
+    font-size: 23px;
+}
+
+.alertify .ajs-commands button.ajs-close::before {
+    font: var(--fa-font-solid);
+    content: "\f00d";
+}
+
+.alertify .ajs-header {
+    padding: 11px 24px
+}

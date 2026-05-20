@@ -1,0 +1,281 @@
+/* ===== INICIO ===== */
+.latest-products {
+    margin: 30px 20px 0 20px;
+    padding: 20px 10px 0 10px;
+}
+
+.color_back_fondo {
+    background-color: #F7F9FD;
+}
+
+.latest-products .container .row .col-md-3 {
+    margin-bottom: 30px;
+}
+
+.contaner_edit > .content_cursos_row {
+    justify-content: space-between !important;
+}
+
+.container_product {
+    width: 25%;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-bottom: 20px;
+}
+
+.container_product > a:hover {
+    box-shadow: -2px 2px 11px 6px rgba(155.99999999999997, 154.30434782608694, 154.30434782608694, 0.5);
+}
+
+.h1_antes_curso {
+    padding: 35px 0 10px 0;
+    font-size: 42px;
+    font-weight: 900;
+    text-align: center;
+}
+
+.borer_antes_cursos {
+    border: 1px solid #222;
+    width: 100px;
+    margin: auto;
+}
+
+.title_antes_cursos {
+    font-size: 32px;
+    background-color: #0a51f9;
+    width: 200px;
+    font-weight: 600;
+    padding: 2px 30px 10px 30px;
+    color: white;
+    box-shadow: 8px 8px 0 0 rgba(177, 177, 177, 0.5);
+}
+
+.elementor-shape.elementor-shape-top.element_nubes {
+    background-color: #00366d;
+}
+
+.elementor-shape.elementor-shape-top.element_nubes .elementor-shape-fill {
+    fill: #F7F9FD;
+}
+
+.antes_footer {
+    background-color: #00366d;
+}
+
+.antes_footer * {
+    color: white;
+}
+
+.antes_footer .why_fnperu {
+    width: 40%;
+}
+
+.antes_footer .why_cualidades {
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0 0 0 28px;
+}
+
+.antes_footer .why_cualidades .cualidad {
+    width: 33.33%;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.antes_footer .why_cualidades .elemt_icon {
+    background-color: #F96E00;
+    width: 80px;
+    padding: 20px;
+    border-radius: 50%;
+}
+
+.antes_footer .why_cualidades .elemt_icon path,
+.antes_footer .why_cualidades .elemt_icon polygon,
+.antes_footer .why_cualidades .elemt_icon rect {
+    fill: white;
+}
+
+.antes_footer .why_fnperu .title {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.antes_footer .why_fnperu .text {
+    line-height: 2;
+    text-align: justify;
+}
+
+.antes_footer .why_fnperu .border_line {
+    border: 1px solid red;
+    width: 80px;
+    margin: 18px 0;
+}
+
+.antes_footer .why_fnperu > div {
+    margin: 35px 0;
+}
+
+.header_fn_peru img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 13px;
+    margin-right: 10px;
+}
+
+@media (max-width: 1500px) {
+    .latest-products {
+        margin: 20px 10px 0 10px;
+        padding: 20px 10px 0 10px;
+    }
+}
+
+@media (max-width: 1350px) {
+    .latest-products {
+        padding: 20px 0 0 0;
+    }
+}
+
+@media (max-width: 1300px) {
+    .product-item .down-content {
+        padding: 16px;
+    }
+
+    .latest-products {
+        margin: 15px 0 0 0;
+        padding: 10px 0 0 0;
+    }
+}
+
+@media (max-width: 1250px) {
+    .container_product {
+        width: 33.3%;
+    }
+
+    .latest-products {
+        padding: 10px 30px 0 30px;
+    }
+}
+
+@media (max-width: 950px) {
+    .container_product {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .container_product > a {
+        width: 320px;
+    }
+}
+
+@media (max-width: 640px) {
+    .contaner_edit > .content_cursos_row {
+        justify-content: center !important;
+    }
+
+    .container_product {
+        width: 320px;
+    }
+
+    .h1_antes_curso {
+        padding: 35px 0 0 0;
+    }
+
+    .borer_antes_cursos {
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 430px) {
+    .container_product {
+        width: 95%;
+    }
+}
+
+@media (max-width: 380px) {
+    .why_fnperu > div.text-center {
+        margin: 20px 0;
+    }
+
+    .why_fnperu > div.text-center > a {
+        display: block;
+    }
+
+    .antes_footer .why_fnperu div .btn_cursos {
+        padding: 7px;
+        margin-right: 0;
+    }
+
+    .antes_footer .why_fnperu div .btn_talleres {
+        padding: 7px;
+        margin-top: 10px;
+        margin-left: 0;
+    }
+
+    .antes_footer .why_cualidades {
+        margin: 30px auto 0 auto;
+    }
+}
+
+@media (max-width: 370px) {
+    .container_product {
+        width: 98%;
+    }
+}
+
+@media (max-width: 1100px) {
+    .h1_antes_curso {
+        font-size: 35px;
+    }
+
+    .header_fn_peru img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .title_antes_cursos {
+        font-size: 27px;
+    }
+
+    .content_cursos_row > div.fs-18.py-3 {
+        font-size: 16px;
+    }
+
+    .antes_footer .why_fnperu .title {
+        font-size: 28px;
+    }
+
+    .antes_footer > div {
+        display: block !important;
+    }
+
+    .antes_footer .why_fnperu {
+        width: 100%;
+    }
+
+    .antes_footer .why_cualidades {
+        width: 800px;
+        margin: 50px auto 0 auto;
+        padding: 0;
+    }
+}
+
+@media (max-width: 900px) {
+    .antes_footer .why_cualidades {
+        width: 100%;
+    }
+}
+
+@media (max-width: 700px) {
+    .antes_footer .why_cualidades .cualidad {
+        width: 50%;
+    }
+}
+
+@media (max-width: 450px) {
+    .antes_footer .why_cualidades .cualidad {
+        width: 100%;
+    }
+}

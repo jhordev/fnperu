@@ -1,0 +1,31 @@
+#cursos_table tr td:nth-child(3) {
+    padding-left: 0px;
+}
+
+#cursos_table td:first-child, #cursos_table th:first-child, #cursos_table td:nth-child(5), #cursos_table th:nth-child(5), #cursos_table td:nth-child(4), #cursos_table th:nth-child(4), #cursos_table td:nth-child(3), #cursos_table th:nth-child(3) {
+    max-width: 0px !important;
+}
+
+#cursos_table td:nth-child(2), #cursos_table th:nth-child(2) {
+    max-width: 150px !important;
+    width: 150px !important;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type=number] { -moz-appearance:textfield; }
+
+.dataTable tr.selected .active_lanza {
+    color: white !important;
+}
+
+@media (max-width: 1600px) 
+{
+    #lanzamientos_table tr td:nth-child(3), #lanzamientos_table tr th:nth-child(3), #lanzamientos_table tr td:nth-child(6), #lanzamientos_table tr th:nth-child(6) {
+        display: none;
+    }
+}

@@ -1,0 +1,133 @@
+/* ===== CONTACTENOS ===== */
+#info_contacto {
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+#info_contacto .info_contacto_text,
+#info_contacto .info_contacto_form {
+    width: 50%;
+}
+
+#info_contacto .info_contacto_text .subtema {
+    font-weight: 700;
+    font-size: 26px;
+    color: black;
+}
+
+#info_contacto .info_contacto_text p.border_for_subtema {
+    margin: 15px 0;
+    border: 1px solid red;
+    width: 60px;
+}
+
+#info_contacto .info_contacto_text .icon_list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 5px;
+}
+
+#info_contacto .info_contacto_text .icon_list span.icon {
+    width: 52px;
+}
+
+#info_contacto .info_contacto_text .icon_list span.icon i {
+    background-color: #0c38d7;
+    color: white;
+    padding: 8px 10px 10px 10px;
+    border-radius: 50%;
+}
+
+#info_contacto .info_contacto_text .icon_list span.text {
+    width: calc(100% - 52px);
+    padding-top: 2px;
+}
+
+#info_contacto .info_contacto_form form {
+    border: 1px solid #BABABA;
+    border-radius: 1px;
+    padding: 25px 30px;
+    width: 550px;
+    margin-left: auto;
+    margin-right: 0;
+    margin-top: 20px;
+}
+
+#info_contacto .info_contacto_form .subtema {
+    font-weight: 700;
+    font-size: 26px;
+    color: black;
+}
+
+#info_contacto .info_contacto_form p.border_for_subtema {
+    margin: 15px 0;
+    border: 1px solid red;
+    width: 60px;
+}
+
+#info_contacto .info_contacto_form textarea {
+    height: 200px;
+    padding: 10px 20px 20px 20px;
+    resize: none;
+    border: 1px solid rgb(175, 175, 175);
+}
+
+#info_contacto .info_contacto_form input {
+    border: 1px solid rgb(175, 175, 175);
+}
+
+@media (max-width: 1200px) {
+    #info_contacto .info_contacto_form form {
+        width: 100%;
+    }
+
+    #info_contacto .info_contacto_text,
+    #info_contacto .info_contacto_form {
+        width: 50%;
+    }
+
+    #info_contacto .info_contacto_text {
+        margin: 0 30px 0 0;
+    }
+
+    #info_contacto .info_contacto_form {
+        margin: 0 0 0 30px;
+    }
+}
+
+@media (max-width: 1000px) {
+    #info_contacto {
+        flex-wrap: wrap;
+    }
+
+    #info_contacto .info_contacto_text,
+    #info_contacto .info_contacto_form {
+        width: 100%;
+    }
+
+    #info_contacto .info_contacto_text {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    #info_contacto .info_contacto_form {
+        margin-top: 30px;
+        margin-left: 0;
+    }
+
+    #info_contacto .info_contacto_form form {
+        max-width: 550px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 450px) {
+    #info_contacto .info_contacto_form form {
+        padding: 20px 15px;
+    }
+
+    #info_contacto .info_contacto_form .subtema {
+        font-size: 22px;
+    }
+}

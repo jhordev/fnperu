@@ -1,0 +1,338 @@
+#header_top_curso {
+    color: white;
+}
+
+#header_top_curso p {
+    color: white;
+}
+
+#border_title_curso {
+    width: 150px;
+    border-bottom: 2px solid red;
+}
+
+#header_top_curso #container_data_curso {
+    width: 50%;
+    padding: 16px 30px 16px 0;
+}
+
+#header_top_curso #container_img_principal {
+    width: 50%;
+    text-align: right;
+    padding: 16px 0 16px 12px;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+#header_top_curso #container_img_principal > div {
+    align-items: center;
+}
+
+#header_top_curso #container_img_principal img {
+    max-height: 350px;
+    max-width: 100%;
+}
+
+#seccion_main {
+    width: calc(100% - 380px);
+    padding: 0 12px 0 0;
+}
+
+#seccion_main a.btn_whatsapp_main {
+    background-color: #3ba64c;
+    font-weight: 600;
+	text-decoration: none;
+    padding: 6px 30px;
+    color: white;
+    font-size: 14px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+#seccion_main a.btn_correo_main {
+    background-color: #08496f;
+    font-weight: 600;
+	text-decoration: none;
+    padding: 6px 30px;
+    color: white;
+    font-size: 14px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+#seccion_lateral {
+    width: 380px;
+    padding: 0 0 0 12px;
+}
+
+#seccion_lateral > .card {
+    background-color: #F3F3F3;
+}
+
+#seccion_lateral .btn_precio_big {
+    box-shadow: 6px 7px 0 0 rgba(94.5, 94.5, 94.5, 0.5);
+}
+
+#header_top_curso #container_data_curso .text_introduccion_uno {
+    min-height: 90px;
+}
+
+#btn_matricula {
+    padding: 10px 0;
+    font-weight: 700;
+    background-color: #2bb900;
+    color: white;
+}
+
+#seccion_lateral .card_medios_pago {
+    border: 1px solid rgb(179, 179, 179);
+}
+
+#seccion_lateral .card-header {
+    border-bottom: 1px solid rgb(179, 179, 179);
+}
+
+.bordecito_minimal {
+    border: 1px solid red;
+    width: 50px;
+    margin: 20px 0;
+}
+
+.bordecito_minimal_main {
+    border: 1px solid red;
+    width: 100px;
+}
+
+.background_card_body {
+    background-color: #fafafa;
+}
+
+.buttons_contacto.ms-4-5 {
+    margin-left: 21px;
+}
+
+.data_curso_first_contact {
+    background-color: #25D366;
+}
+
+@media (max-width: 1100px)
+{
+    #header_top_curso #container_data_curso {
+        width: 100%;
+        padding: 0 0 16px 0 !important;
+    }
+
+    #title_curso {
+        font-size: 23px !important;
+    }
+
+    #header_top_curso #container_data_curso .text_introduccion_uno {
+        min-height: auto;
+    }
+
+    #container_data_curso .fecha_inicio {
+        font-size: 18px;
+        padding-bottom: 0 !important;
+    }
+
+    #container_data_curso .incluye_certificado {
+        font-size: 18px;
+        padding-bottom: 0 !important;
+    }
+
+    #header_top_curso #container_img_principal {
+        justify-content: center;
+        width: 100%;
+        max-height: 350px;
+        margin-bottom: 16px;
+        padding: 0 !important;
+    }
+
+    #header_top_curso #container_img_principal > div {
+        text-align: center;
+    }
+
+    #seccion_main {
+        width: 100%;
+        padding: 0;
+    }
+
+    #seccion_lateral {
+        width: 100%;
+        padding: 0;
+        margin-top: 1.5rem;
+    }
+
+    #seccion_lateral .container_facebook {
+        margin: auto;
+        width: 400px;
+        overflow: hidden    ;
+    }
+}
+
+@media (max-width: 650px)
+{
+    #seccion_main a.btn_whatsapp_main {
+        display: block;
+        margin-right: 0;
+        margin-left: 0 !important;
+        padding: 7px;
+        margin-bottom: 7px;
+        text-align: center;
+    }
+
+    #seccion_main a.btn_correo_main {
+        display: block;
+        margin-left: 0 !important;
+        padding: 7px;
+        text-align: center;
+    }
+
+    #btn_matricula {
+        padding: 7px;
+    }
+
+    #seccion_lateral .btn_precio_big {
+        font-size: 22px;
+    }
+
+    .buttons_contacto.ms-4-5 {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 500px)
+{
+    #seccion_lateral .container_facebook {
+        width: 100%;
+    }
+}
+
+@media (max-width: 450px)
+{
+    #header_top_curso .link_brochure {
+        width: 100%;
+        padding: 7px !important;
+    }
+
+    #header_top_curso .data_curso_first_contact {
+        width: 100%;
+        margin: 10px 0 0 0 !important;
+    }
+
+    #seccion_lateral .btn_precio_big {
+        width: 100%;
+        padding: 10px !important;
+    }
+}
+
+#main_carousel {
+    background-color: #484848;
+    border-radius: 4px;
+    margin-bottom: 22px;
+    overflow: hidden;
+}
+
+#main_carousel #main_item {
+    max-width: 800px;
+    margin: auto;
+    width: calc(100% - 100px);
+}
+
+#main_carousel #main_item img,
+#main_carousel #main_item iframe {
+    border: 2px solid #969696;
+    border-radius: 4px;
+}
+
+#main_carousel #main_item iframe {
+    height: 400px;
+}
+
+#main_carousel #container_items {
+    width: calc(100% - 100px);
+    overflow: auto;
+}
+
+#main_carousel #icon_prev,
+#main_carousel #icon_next {
+    width: 50px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+#main_carousel #icon_prev i,
+#main_carousel #icon_next i {
+    font-size: 35px;
+    cursor: pointer;
+    color: white;
+}
+
+#main_carousel .overlap {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.35);
+    cursor: pointer;
+}
+
+#main_carousel .overlap_out {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+#main_carousel #container_items .item iframe {
+    width: 210px;
+    height: 118px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+#main_carousel #container_items .item img {
+    height: 118px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+@media (max-width: 800px) {
+    #main_carousel #main_item iframe {
+        height: 300px;
+    }
+
+    #main_carousel #main_item {
+        width: calc(100% - 60px);
+    }
+
+    #main_carousel #icon_prev,
+    #main_carousel #icon_next {
+        width: 30px;
+    }
+
+    #main_carousel #icon_prev i,
+    #main_carousel #icon_next i {
+        font-size: 25px;
+    }
+
+    #main_carousel #container_items {
+        width: calc(100% - 60px);
+    }
+
+    #main_carousel #container_items .item iframe {
+        width: 157px;
+        height: 88px;
+    }
+
+    #main_carousel #container_items .item img {
+        height: 88px;
+    }
+}
+
+@media (max-width: 600px) {
+    #main_carousel #main_item iframe {
+        height: 250px;
+    }
+}
+
+@media (max-width: 500px) {
+    #main_carousel #main_item iframe {
+        height: 200px;
+    }
+}

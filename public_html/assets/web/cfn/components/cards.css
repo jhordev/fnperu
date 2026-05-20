@@ -1,0 +1,140 @@
+/* ===== PRODUCT CARD ===== */
+.product-item {
+    border: 1px solid #C8C8C8;
+    height: 100%;
+}
+
+.product-item .down-content {
+    padding: 20px;
+    position: relative;
+}
+
+.product-item img {
+    width: 100%;
+    height: 270px;
+    overflow: hidden;
+}
+
+.product-item .down-content h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    min-height: 40px;
+}
+
+.product-item .down-content h6 {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 18px;
+    color: #121212;
+}
+
+.product-item .down-content p {
+    margin-bottom: 20px;
+}
+
+.product-item .down-content ul li {
+    display: inline-block;
+}
+
+.product-item .down-content ul li i {
+    color: #f33f3f;
+    font-size: 14px;
+}
+
+.product-item .down-content .div_for_precio {
+    width: 110px;
+    padding: 0 0 0 0;
+    font-size: 20px;
+    background-color: #ff3a06;
+    font-weight: 600;
+    color: white;
+}
+
+.product-item .down-content .div_for_bloque {
+    width: calc(100% - 110px);
+}
+
+.product-item .down-content .div_for_bloque .div_for_primiun {
+    background-color: #05b848;
+    color: white;
+    text-align: center;
+    padding: 2px;
+}
+
+.product-item .down-content .div_for_bloque .div_for_inscribete {
+    background-color: #005fff;
+    color: white;
+    padding: 2px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.urbanization-item {
+    text-align: center;
+}
+
+.urbanization-item img {
+    height: 300px;
+    width: auto;
+    overflow: hidden;
+}
+
+.product-item.urbanization-item .matriculas_abiertas {
+    font-style: italic;
+}
+
+.product-item.urbanization-item .down-content .div_for_precio {
+    width: 150px;
+}
+
+.product-item.urbanization-item .down-content .div_for_bloque {
+    width: calc(100% - 150px);
+}
+
+.product-item.urbanization-item .down-content .div_for_bloque .div_for_inscribete {
+    font-size: 18px;
+    padding: 6px 3px;
+    font-weight: 500;
+}
+
+@media (max-width: 1400px) {
+    .product-item .down-content {
+        padding: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .product-item .down-content h6 {
+        position: absolute !important;
+        top: 30px !important;
+        right: 30px !important;
+    }
+}
+
+@media (max-width: 992px) {
+    .product-item .down-content h6 {
+        position: relative;
+        top: 0;
+        right: 0;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 450px) {
+    .product-item.urbanization-item .down-content .div_for_precio {
+        width: 100%;
+        padding: 5px 2px;
+        margin-bottom: 5px;
+    }
+
+    .product-item.urbanization-item .down-content .div_for_bloque {
+        width: 100%;
+        padding-left: 0;
+    }
+
+    .product-item.urbanization-item .down-content .div_for_bloque .div_for_inscribete {
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,10 @@
+.contaner_edit {
+    max-width: 1450px;
+}
+
+@media (max-width: 1500px) 
+{
+    .contaner_edit {
+        max-width: 100%;
+    }
+}

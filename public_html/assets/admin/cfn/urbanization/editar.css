@@ -1,0 +1,217 @@
+#input_edit_nombre {
+    width: 600px;
+    position: relative;
+}
+
+@media (max-width: 1325px)
+{
+    #input_edit_nombre {
+        width: calc(100% - 400px);
+    }
+}
+
+#input_edit_nombre #charater_input_name {
+    position: absolute;
+    top: 12px;
+    right: 20px;
+}
+
+#input_edit_nombre input {
+    padding-right: 75px;
+}
+
+#input_video_nombre {
+    width: 600px;
+    position: relative;
+}
+
+@media (max-width: 1325px)
+{
+    #input_video_nombre {
+        width: calc(100% - 400px);
+    }
+}
+
+#input_video_nombre #charater_input_video {
+    position: absolute;
+    top: 3px;
+    right: 20px;
+}
+
+#input_video_nombre input {
+    padding-right: 75px;
+}
+
+.ocultar_drag {
+    opacity: 0;
+}
+
+.material_each, .contact_each {
+    position: relative;
+}
+
+.material_each:hover, .contact_each:hover {
+    border-color: rgb(141, 141, 255) !important;
+}
+
+.material_each .btn_delete_material,
+.contact_each .btn_delete_contact,
+.indicador_each .btn_delete_indicador,
+.bienes_each .btn_delete_bien,
+.slider_each .btn_delete_slider
+{
+    position: absolute;
+    top: 5px;
+    width: 30px;
+    right: 0;
+    text-align: center;
+    padding: 3px 0 5px 0;
+    font-size: 12px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    cursor: pointer;
+}
+
+.indicador_each {
+    position: relative;
+}
+
+.indicador_each:hover {
+    border-color: rgb(141, 141, 255) !important;
+}
+
+.bienes_each {
+    position: relative;
+}
+
+.bienes_each:hover {
+    border-color: rgb(141, 141, 255) !important;
+}
+
+.accordion-button.for_mod[aria-expanded="true"] {
+    border-bottom: 1px solid rgb(221, 221, 221) !important;
+    background-color: #e7f1ff !important;
+    font-weight: 600;
+}
+
+.accordion-button.for_mod .btn_new_indicador, .accordion-button.for_mod .btn_delete_modulo {
+    display: none;
+}
+
+.accordion-button.for_mod[aria-expanded="true"] .btn_new_indicador, .accordion-button.for_mod[aria-expanded="true"] .btn_delete_modulo {
+    display: block;
+}
+
+.accordion-item_modulos {
+    border: 1px solid rgb(161, 161, 161);
+}
+
+.accordion-item_modulos:hover {
+    border: 1px solid rgb(0, 47, 255);
+    border-bottom: 2px solid rgb(0, 47, 255);
+}
+
+.cantidad_indicadores {
+    position: absolute;
+    right: 50px;
+}
+
+#main_carousel {
+    border: 1px solid rgba(255, 0, 0, 0.46);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#main_carousel #main_item {
+    max-width: 800px;
+    margin: auto;
+    width: calc(100% - 100px);
+}
+
+#main_carousel #main_item iframe {
+    height: 400px;
+}
+
+#main_carousel #container_items {
+    width: calc(100% - 100px);
+    overflow: auto;
+}
+
+#main_carousel #icon_prev,
+#main_carousel #icon_next {
+    width: 50px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+#main_carousel #icon_prev i,
+#main_carousel #icon_next i {
+    font-size: 35px;
+    cursor: pointer;
+}
+
+#main_carousel .overlap {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    cursor: pointer;
+}
+
+#main_carousel .overlap_out {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+#main_carousel #container_items .item iframe {
+    width: 210px;
+    height: 118px;
+}
+
+#main_carousel #container_items .item img {
+    height: 118px;
+}
+
+@media (max-width: 800px) {
+    #main_carousel #main_item iframe {
+        height: 300px;
+    }
+
+    #main_carousel #main_item {
+        width: calc(100% - 60px);
+    }
+
+    #main_carousel #icon_prev,
+    #main_carousel #icon_next {
+        width: 30px;
+    }
+
+    #main_carousel #icon_prev i,
+    #main_carousel #icon_next i {
+        font-size: 25px;
+    }
+
+    #main_carousel #container_items {
+        width: calc(100% - 60px);
+    }
+
+    #main_carousel #container_items .item iframe {
+        width: 157px;
+        height: 88px;
+    }
+
+    #main_carousel #container_items .item img {
+        height: 88px;
+    }
+}
+
+@media (max-width: 600px) {
+    #main_carousel #main_item iframe {
+        height: 250px;
+    }
+}
+
+@media (max-width: 500px) {
+    #main_carousel #main_item iframe {
+        height: 200px;
+    }
+}

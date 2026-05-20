@@ -1,0 +1,39 @@
+/* ===== VER CURSO ===== */
+#header_top_curso #container_data_curso {
+    width: 60%;
+    padding: 16px 30px 16px 0;
+}
+
+#header_top_curso #container_img_principal {
+    width: 40%;
+    padding: 16px 0 16px 12px;
+}
+
+@media (max-width: 1100px) {
+    #header_top_curso #container_data_curso {
+        width: 100%;
+        padding: 0 0 16px 0;
+    }
+
+    #header_top_curso #container_img_principal {
+        width: 100%;
+        max-height: 350px;
+        margin-bottom: 16px;
+        padding: 0;
+    }
+}
+
+@media (max-width: 650px) {
+    #seccion_main a.btn_whatsapp_main {
+        padding: 10px 30px;
+        display: inline-block;
+        margin-right: 10px;
+        margin-bottom: 0;
+    }
+
+    #seccion_main a.btn_correo_main {
+        padding: 10px 30px;
+        display: inline-block;
+        margin-left: 10px;
+    }
+}

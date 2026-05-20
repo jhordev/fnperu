@@ -1,0 +1,23 @@
+.contaner_general {
+    width: 1340px;
+    margin: auto;
+}
+
+.contaner_edit {
+    max-width: 1450px;
+}
+
+@media (max-width: 1500px) {
+    .contaner_general {
+        width: 90%;
+    }
+    .contaner_edit {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 1400px) {
+    .contaner_general {
+        width: 95%;
+    }
+}
