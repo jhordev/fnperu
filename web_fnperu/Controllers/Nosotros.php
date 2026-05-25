@@ -1,9 +1,9 @@
 <?php
 
     namespace FNPERU\Controllers;
-    use FNPERU\Core\Controller;
-    
-    class Nosotros extends Controller
+    use FNPERU\Core\BaseController;
+
+    class Nosotros extends BaseController
     {
         public function __construct()
         {

@@ -15,18 +15,18 @@
             <p class="border_for_subtema"></p>
 
             <p class="fs-18 icon_list">
-                <span class="icon"><i class="fa-solid fa-house-chimney"></i></span> 
-                <span class="text">Dirección: Av. Cajamarca Sur 754 - Nueva Cajamarca - Perú</span>
+                <span class="icon"><i class="fa-solid fa-house-chimney"></i></span>
+                <span class="text">Dirección: <?= htmlspecialchars($web_config['contacto_direccion'] ?? '') ?></span>
             </p>
 
             <p class="fs-18 icon_list">
-                <span class="icon"><i class="fa-solid fa-phone"></i></span> 
-                <span class="text">Teléfono: 990 252 507 / 954 982 077</span>
+                <span class="icon"><i class="fa-solid fa-phone"></i></span>
+                <span class="text">Teléfono: <?= htmlspecialchars($web_config['contacto_telefono_1'] ?? '') ?><?= !empty($web_config['contacto_telefono_2']) ? ' / ' . htmlspecialchars($web_config['contacto_telefono_2']) : '' ?></span>
             </p>
 
             <p class="fs-18 icon_list">
-                <span class="icon"><i class="fa-solid fa-envelope"></i></span> 
-                <span class="text">Email: fncostructores@gmail.com</span>
+                <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+                <span class="text">Email: <?= htmlspecialchars($web_config['contacto_email'] ?? '') ?></span>
             </p>
 
             <div class="container_facebook">

@@ -19,7 +19,9 @@
             ["Route" => "/", "Controller" => "Cursos", "Method" => 'index', "redirect_here" => true],
             ["Route" => "/nosotros", "Controller" => "Nosotros", "Method" => 'index', "redirect_here" => true],
             ["Route" => "/contacto", "Controller" => "Nosotros", "Method" => 'contactenos', "redirect_here" => true],
-            ["Route" => "/urbanizaciones", "Controller" => "Urbanizaciones", "Method" => 'ver', "redirect_here" => false]
+            ["Route" => "/urbanizaciones", "Controller" => "Urbanizaciones", "Method" => 'index', "redirect_here" => true],
+            ["Route" => "/cursos", "Controller" => "Cursos", "Method" => 'listado', "redirect_here" => true],
+            ["Route" => "/talleres", "Controller" => "Talleres", "Method" => 'listado', "redirect_here" => true]
         ];
 
 
@@ -45,9 +47,9 @@
             $auxUrlHost = $auxUrlHost[0];
             Helper::setDomain($auxUrlHost);
 
-            if ($auxUrlHost != $_SERVER['HTTP_HOST']){
-                redirect(Helper::base_url() . $this -> URLBase);
-            }
+            // if ($auxUrlHost != $_SERVER['HTTP_HOST']){
+            //     redirect(Helper::base_url() . $this -> URLBase);
+            // }
             /* VERIFICAR HOST */
 
             $url = !empty($_GET['url']) ? $_GET['url'] : 'Index'; 

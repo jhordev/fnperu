@@ -29,8 +29,15 @@
             $data['urbanization'] = $urbanization -> getLast();
 
             $cursos = new CursosModel;
-            $data['cursos'] = $cursos -> getLastCursosPublicados();
-            $cursosConLanza = $cursos -> getLastCursosPublicadosConPrecio(date('Y-m-d'));
+            $allCursos = $cursos -> getLastCursosPublicados();
+            $data['cursos'] = array_values(array_filter($allCursos, function($c) {
+                return stripos($c['curso_nombre'], 'taller') === false;
+            }));
+
+            $cursosConLanzaRaw = $cursos -> getLastCursosPublicadosConPrecio(date('Y-m-d'));
+            $cursosConLanza = array_values(array_filter($cursosConLanzaRaw, function($c) {
+                return stripos($c['curso_nombre'], 'taller') === false;
+            }));
             $newArrayLanza = array();
             $auxIdCurso = null;
             $idArrayCursosConLanza = [];
@@ -96,6 +103,87 @@
             $this -> view(['WebTemplate/header', 'Cursos/inicio', 'WebTemplate/footer'], $data);
         }
 
+        public function listado()
+        {
+            $data['page_title'] = 'Nuestros Cursos';
+            $data['page_active'] = 'cursos';
+            $data['page_css'] = 'pages/nuestros-cursos';
+            $data['icofont'] = true;
+
+            $cursos = new CursosModel;
+            $allCursos = $cursos -> getLastCursosPublicados();
+            $data['cursos'] = array_values(array_filter($allCursos, function($c) {
+                return stripos($c['curso_nombre'], 'taller') === false;
+            }));
+
+            $cursosConLanzaRaw = $cursos -> getLastCursosPublicadosConPrecio(date('Y-m-d'));
+            $cursosConLanza = array_values(array_filter($cursosConLanzaRaw, function($c) {
+                return stripos($c['curso_nombre'], 'taller') === false;
+            }));
+            $newArrayLanza = array();
+            $auxIdCurso = null;
+            $idArrayCursosConLanza = [];
+
+            foreach ($cursosConLanza as $key => $value)
+            {
+                if ($auxIdCurso != $value['curso_id'])
+                {
+                    $auxIdCurso = $value['curso_id'];
+                    $idArrayCursosConLanza[$auxIdCurso] = true;
+
+                    $datetime1 = new \DateTime($value['lanzamiento_inicio']);
+                    $datetime2 = new \DateTime($value['lanzamiento_fin']);
+                    $interval = $datetime1 -> diff($datetime2);
+
+                    $value['lanz_duracion'] = $interval -> format('%m');
+                    $value['lanz_duracion'] = ($value['lanz_duracion'] < 10) ? '0' . $value['lanz_duracion'] : $value['lanz_duracion'];
+
+                    if ($value['lanz_duracion'] == 1 && $value['lanz_duracion'] != 0) {
+                        $value['lanz_duracion'] .= ' Mes';
+                    }
+
+                    if ($value['lanz_duracion'] == 0) {
+                        $value['lanz_duracion'] = $interval -> format('%d');
+
+                        $value['lanz_duracion'] = ($value['lanz_duracion'] < 10) ? '0' . $value['lanz_duracion'] : $value['lanz_duracion'];
+
+                        if ($value['lanz_duracion'] == 1) {
+                            $value['lanz_duracion'] .= ' Día';
+                        } else {
+                            $value['lanz_duracion'] .= ' Días';
+                        }
+                    }
+                    else if($value['lanz_duracion'] != 1)
+                    {
+                        $value['lanz_duracion'] .= ' Meses';
+                    }
+
+                    $newArrayLanza[] = $value;
+                }
+            }
+
+            $countDataCurso = count($data['cursos']);
+
+            for ($index = 0; $index  < $countDataCurso; $index ++)
+            {
+                if ( isset($idArrayCursosConLanza[$data['cursos'][$index]['curso_id']]) )
+                {
+                    array_splice($data['cursos'], $index, 1);
+                    $countDataCurso--;
+                    $index--;
+                }
+            }
+
+            $countLanza = count($newArrayLanza);
+
+            for ($index = ($countLanza - 1); $index >= 0; $index--) {
+                array_unshift($data['cursos'], $newArrayLanza[$index]);
+            }
+
+            $this -> view(['WebTemplate/header', 'Cursos/listado', 'WebTemplate/footer'], $data);
+        }
+
+
         public function ver(int $idCurso)
         {
             $cursos = new CursosModel;
@@ -103,6 +191,10 @@
 
             if ($data['curso'] == false) {
                 redirect($this -> base_url() . '/#cursos');
+            }
+
+            if (stripos($data['curso']['curso_nombre'], 'taller') !== false) {
+                redirect($this -> base_url() . '/talleres/ver/' . $idCurso);
             }
 
             $dataLanza = $cursos -> getCursoPublicadoConPrecioByIdCurso($idCurso, date('Y-m-d'));

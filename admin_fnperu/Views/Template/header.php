@@ -209,6 +209,15 @@
                                     Accesos Directos
                                 </a>
                             </li>
+
+                            <li class="app-sidebar__heading">SISTEMA</li>
+
+                            <li>
+                                <a href="<?= $base_url ?>/configuracion" class="<?= ($page_active == 'configuracion') ? 'mm-active' : '' ?>">
+                                    <i class="metismenu-icon fa-solid fa-sliders"></i>
+                                    Configuraciones
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>

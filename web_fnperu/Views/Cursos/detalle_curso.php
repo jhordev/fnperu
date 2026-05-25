@@ -1,9 +1,9 @@
 <div class="bg-dark" id="header_top_curso">
     
-    <div class="row contaner_general mx-auto">
+    <div class="row contaner_general pt-4 pb-4 pt-lg-0 pb-lg-0 mx-auto">
 
-        <div class="py-3 text-start" id="container_data_curso">
-            <p class="fw-800 fs-24 pt-3 pb-3" id="title_curso"><?= $curso['curso_nombre'] ?></p>
+        <div class="py-4 py-lg-5 px-3 px-lg-4 text-start d-flex flex-column justify-content-center" id="container_data_curso">
+            <h1 class="fw-bolder pt-2 pb-2 text-white mb-0" style="font-size: clamp(28px, 5vw, 46px); line-height: 1.2;" id="title_curso"><?= $curso['curso_nombre'] ?></h1>
             <p id="border_title_curso" class="mb-3"></p>
             <p class="fs-17 text_introduccion_uno text-justify"><?= $curso['curso_introduccion'] ?></p>
             <p class="mt-3 pb-2 fs-20 fw-500 fecha_inicio">FECHA DE INICIO: <?= isset($dataLanza['lanzamiento_inicio']) ? $dataLanza['lanzamiento_inicio'] : 'Muy Pronto' ?></p>
@@ -11,12 +11,19 @@
             <p class="fs-20 pb-3 incluye_certificado">* Incluye certificado físico y digital</p>
 
             <?php if ($curso['curso_brochure'] != '') { ?>
-                <a class="btn btn-warning px-4 py-2 mt-2 link_brochure" target="_blank" href="<?= $assets_url ?>/admin/docs/brochure/<?= $curso['curso_brochure'] ?>">DESCARGAR BROCHURE <i class="ms-2 fa-solid fa-up-right-from-square"></i></a>
+                <div class="d-grid d-md-flex gap-3 mt-4">
+                    <a class="btn btn-warning px-4 py-3 py-md-2 link_brochure fw-700 shadow-sm d-flex align-items-center justify-content-center text-dark" style="border-radius: 8px; font-size: 16px;" target="_blank" href="<?= $assets_url ?>/admin/docs/brochure/<?= $curso['curso_brochure'] ?>">DESCARGAR BROCHURE <i class="ms-2 fa-solid fa-up-right-from-square"></i></a>
+                    <button type="button" class="btn btn-primary px-4 py-3 py-md-2 fw-700 shadow-sm d-flex align-items-center justify-content-center" style="border-radius: 8px; font-size: 16px;" data-bs-toggle="modal" data-bs-target="#modal_newsolicitud">MATRICÚLATE AHORA <i class="ms-2 fa-solid fa-arrow-right"></i></button>
+                </div>
+            <?php } else { ?>
+                <div class="d-grid d-md-flex gap-3 mt-4">
+                    <button type="button" class="btn btn-primary px-4 py-3 py-md-2 fw-700 shadow-sm d-flex align-items-center justify-content-center" style="border-radius: 8px; font-size: 16px;" data-bs-toggle="modal" data-bs-target="#modal_newsolicitud">MATRICÚLATE AHORA <i class="ms-2 fa-solid fa-arrow-right"></i></button>
+                </div>
             <?php } ?>
             
         </div>
 
-        <div class="py-3" id="container_img_principal">
+        <div class="py-4 py-lg-5 px-0 px-md-3 px-lg-4 d-flex align-items-center justify-content-center" id="container_img_principal">
             <div class="overflow-hidden w-100">
 
                 <?php if ($curso['curso_video_habil'] == 1 && $curso['curso_video'] != '') { ?>
@@ -42,7 +49,7 @@
 
             <?php if ($curso['curso_introduccion_dos'] != '') { ?>
 
-                <div class="card mb-4">
+                <div class="card mb-4 border-0 shadow-sm" style="border-radius: 14px; overflow: hidden;">
                     <h5 class="card-header py-3 fw-600 border-bottom-0">INTRODUCCIÓN:</h5>
 
                     <div class="background_card_body">
@@ -57,7 +64,7 @@
             
             if ($contenido != []) { ?>
 
-                <div class="card mb-4">
+                <div class="card mb-4 border-0 shadow-sm" style="border-radius: 14px; overflow: hidden;">
                     <h5 class="card-header py-3 fw-600 border-bottom-0">CONTENIDO DEL CURSO:</h5>
 
                     <div class="background_card_body">
@@ -110,7 +117,7 @@
             
             if ($beneficios != []) { ?>
 
-                <div class="card mb-4">
+                <div class="card mb-4 border-0 shadow-sm" style="border-radius: 14px; overflow: hidden;">
                     <h5 class="card-header py-3 fw-600 border-bottom-0">BENEFICIOS:</h5>
 
                     <div class="background_card_body">
@@ -135,7 +142,7 @@
             
             if ($materiales != []) { ?>
 
-                <div class="card mb-4">
+                <div class="card mb-4 border-0 shadow-sm" style="border-radius: 14px; overflow: hidden;">
                     <h5 class="card-header py-3 fw-600 border-bottom-0">MATERIALES ENTREGADOS:</h5>
 
                     <div class="background_card_body">
@@ -158,7 +165,7 @@
 
             <?php } ?>
             
-            <div class="card procedimiento_matricula">
+            <div class="card procedimiento_matricula border-0 shadow-sm" style="border-radius: 14px; overflow: hidden;">
 
                 <h5 class="card-header py-3 fw-600 border-bottom-0">PROCEDIMIENTO DE MATRÍCULA:</h5>
 
@@ -171,8 +178,8 @@
                     <p class="card-text mb-3">IMPORTANTE: Para inscripciones, solicitud de ficha de inscripción y datos bancarios, comunicarse por los siguientes medios de contacto.</p>
 
                     <div class="text-center buttons_contacto">
-                        <a target="_blank" href="https://wa.me/51990252507?text=Hola,%20información%20por%20favor" class="btn_whatsapp_main">WHATSAPP &nbsp; 990 252 507</a>
-                        <a class="btn_correo_main" >CORREO: &nbsp; fncostructores@gmail.com</a>
+                        <a target="_blank" href="https://wa.me/51<?= preg_replace('/\D/', '', $web_config['contacto_telefono_1'] ?? '') ?>?text=Hola,%20información%20por%20favor" class="btn_whatsapp_main">WHATSAPP &nbsp; <?= htmlspecialchars($web_config['contacto_telefono_1'] ?? '') ?></a>
+                        <a class="btn_correo_main">CORREO: &nbsp; <?= htmlspecialchars($web_config['contacto_email'] ?? '') ?></a>
                     </div>
                 </div>
             </div>
@@ -180,9 +187,9 @@
         </section>
 
         <section id="seccion_lateral">
-            <div class="card">
+            <div class="card border-0 shadow-sm" style="border-radius: 14px; overflow: hidden;">
                 <div class="card-body">
-                    <button class="btn btn-danger py-3 px-5 fs-25 rounded-0 btn_precio_big">S/ <?= isset($dataLanza['lanzamiento_costo']) ? $dataLanza['lanzamiento_costo'] : '-.--' ?></button>
+                    <button class="btn btn-danger py-3 px-4 fs-25 btn_precio_big w-100 fw-bold shadow-sm" style="border-radius: 10px;">S/ <?= isset($dataLanza['lanzamiento_costo']) ? $dataLanza['lanzamiento_costo'] : '-.--' ?></button>
 
                     <div class="d-grid gap-2 mt-2">
                         <button class="btn mt-3" id="btn_matricula" type="button">MATRICULATE</button>
@@ -190,12 +197,12 @@
 
                     <div class="bordecito_minimal"></div>
 
-                    <div class="card mt-3 card_medios_pago">
+                    <div class="card mt-3 card_medios_pago border-0 shadow-sm" style="border-radius: 14px; overflow: hidden;">
                         <h5 class="card-header fw-600">Medios de Pagos</h5>
                         <div class="card-body">
                             <p class="card-text fw-400">Escríbenos para enviarte los detalles bancarios:</p>
-                            <p class="card-text fw-400"><span class="fw-600">WhatsApp:</span> 990 252 507</p>
-                            <p class="card-text fw-400"><span class="fw-600">Correo:</span> fncostructores@gmail.com</p>
+                            <p class="card-text fw-400"><span class="fw-600">WhatsApp:</span> <?= htmlspecialchars($web_config['contacto_telefono_1'] ?? '') ?></p>
+                            <p class="card-text fw-400"><span class="fw-600">Correo:</span> <?= htmlspecialchars($web_config['contacto_email'] ?? '') ?></p>
                         </div>
                     </div>
 
@@ -220,76 +227,76 @@
 </div>
 
 <div class="modal fade bayer_modal" id="modal_newsolicitud" tabindex="-1" aria-labelledby="modal_newsolicitudLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content border-0 shadow" style="border-radius: 16px; overflow: hidden;">
             <form action="" id="from_newsolicitud" autocomplete="off">
-                <div class="modal-header">
-                    <h5 class="modal-title fw-bold" id="modal_newsolicitudLabel">SOLICITUD DE MATRÍCULA</h5>
+                <div class="modal-header bg-light py-3">
+                    <h5 class="modal-title fw-800 text-primary" id="modal_newsolicitudLabel">SOLICITUD DE MATRÍCULA</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body row mx-0">
 
                     <div class="mb-2 px-2">
-                        <label for="" class="form-label fw-500 text-black mb-1">Nombre del Curso:</label>
-                        <input type="text" class="form-control form-control-sm" disabled value="<?= $curso['curso_nombre'] ?>">
+                        <label for="" class="form-label fw-600 text-dark mb-1 fs-15">Nombre del Curso:</label>
+                        <input type="text" class="form-control py-2" disabled value="<?= $curso['curso_nombre'] ?>">
                     </div>
 
                     <input type="number" class="d-none" name="id_curso" value="<?= $curso['curso_id'] ?>">
 
                     <div class="mb-2 col-12 col-lg-3 px-2">
-                        <label for="" class="form-label fw-500 text-black mb-1">DNI:</label>
-                        <input type="number" class="form-control form-control-sm no-arrow" required name="dni">
+                        <label for="" class="form-label fw-600 text-dark mb-1 fs-15">DNI:</label>
+                        <input type="number" class="form-control no-arrow py-2" required name="dni">
                     </div>
 
                     <div class="mb-2 col-12 col-lg-5 px-2">
-                        <label for="" class="form-label fw-500 text-black mb-1">Nombres:</label>
-                        <input type="text" class="form-control form-control-sm" minlength="2" maxlength="140" required name="nombres">
+                        <label for="" class="form-label fw-600 text-dark mb-1 fs-15">Nombres:</label>
+                        <input type="text" class="form-control py-2" minlength="2" maxlength="140" required name="nombres">
                     </div>
 
                     <div class="mb-2 col-12 col-lg-4 px-2">
-                        <label for="" class="form-label fw-500 text-black mb-1">Apellido Paterno:</label>
-                        <input type="text" class="form-control form-control-sm" minlength="2" maxlength="140" required name="apellido_paterno">
+                        <label for="" class="form-label fw-600 text-dark mb-1 fs-15">Apellido Paterno:</label>
+                        <input type="text" class="form-control py-2" minlength="2" maxlength="140" required name="apellido_paterno">
                     </div>
 
                     <div class="mb-2 col-12 col-lg-4 px-2">
-                        <label for="" class="form-label fw-500 text-black mb-1">Apellido Materno:</label>
-                        <input type="text" class="form-control form-control-sm" minlength="2" maxlength="140" required name="apellido_materno">
+                        <label for="" class="form-label fw-600 text-dark mb-1 fs-15">Apellido Materno:</label>
+                        <input type="text" class="form-control py-2" minlength="2" maxlength="140" required name="apellido_materno">
                     </div>
 
                     <div class="mb-2 col-12 col-lg-3 px-2">
-                        <label for="" class="form-label fw-500 text-black mb-1">Celular:</label>
-                        <input type="number" class="form-control form-control-sm no-arrow" min="900000000" max="999999999" required name="celular">
+                        <label for="" class="form-label fw-600 text-dark mb-1 fs-15">Celular:</label>
+                        <input type="number" class="form-control no-arrow py-2" min="900000000" max="999999999" required name="celular">
                     </div>
 
                     <div class="mb-2 col-12 col-lg-5 px-2">
-                        <label for="" class="form-label fw-500 text-black mb-1">Correo Electrónico: (Opcional)</label>
-                        <input type="email" class="form-control form-control-sm" minlength="5" maxlength="180" name="email">
+                        <label for="" class="form-label fw-600 text-dark mb-1 fs-15">Correo Electrónico: (Opcional)</label>
+                        <input type="email" class="form-control py-2" minlength="5" maxlength="180" name="email">
                     </div>
 
                     <div class="mb-2 col-12 col-lg-6 px-2">
-                        <label for="" class="form-label fw-500 text-black mb-1">Lugar de Residencia:</label>
-                        <input type="text" class="form-control form-control-sm" minlength="5" maxlength="180" required name="residencia_lugar">
+                        <label for="" class="form-label fw-600 text-dark mb-1 fs-15">Lugar de Residencia:</label>
+                        <input type="text" class="form-control py-2" minlength="5" maxlength="180" required name="residencia_lugar">
                     </div>
 
                     <div class="mb-2 col-12 col-lg-6 px-2">
-                        <label for="" class="form-label fw-500 text-black mb-1">Dirección de Residencia:</label>
-                        <input type="text" class="form-control form-control-sm" minlength="5" maxlength="180" required name="residencia_direccion">
+                        <label for="" class="form-label fw-600 text-dark mb-1 fs-15">Dirección de Residencia:</label>
+                        <input type="text" class="form-control py-2" minlength="5" maxlength="180" required name="residencia_direccion">
                     </div>
 
                     <div class="mb-2 px-2">
-                        <label class="form-label fw-500 text-black mb-1">Foto del Voucher:</label>
-                        <input class="form-control form-control-sm" type="file" accept="image/png, image/jpg, image/jpeg" required name="vaucher">
+                        <label class="form-label fw-600 text-dark mb-1 fs-15">Foto del Voucher:</label>
+                        <input class="form-control py-2" type="file" accept="image/png, image/jpg, image/jpeg" required name="vaucher">
                     </div>
                     
                     <div class="mb-3 px-2">
-                        <label for="" class="form-label fw-500 text-black mb-1">Mensaje: (Opcional)</label>
-                        <textarea class="form-control form-control-sm resize-none" rows="3" name="mensaje" minlength="5" maxlength="400"></textarea>
+                        <label for="" class="form-label fw-600 text-dark mb-1 fs-15">Mensaje: (Opcional)</label>
+                        <textarea class="form-control resize-none py-2" rows="3" name="mensaje" minlength="5" maxlength="400"></textarea>
                     </div>
                     
                 </div>
-                <div class="modal-footer justify-content-between">
-                    <button type="button" class="btn btn-white border border-primary btn-sm" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary btn-sm">Enviar Solicitud</button>
+                <div class="modal-footer bg-light py-3 justify-content-between">
+                    <button type="button" class="btn btn-outline-secondary px-4 fw-600" style="border-radius: 8px;" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary px-4 fw-600" style="border-radius: 8px;">Enviar Solicitud <i class="fa-solid fa-paper-plane ms-2"></i></button>
                 </div>
             </form>
         </div>

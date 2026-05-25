@@ -1,195 +1,296 @@
+<!-- ===== Hero Section ===== -->
+<section class="hero-section">
+    <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5500" data-bs-pause="hover">
 
-<?php if (false) { ?>
-
-<div id="banner_principal" style="background-image: url('<?= $assets_url ?>/admin/images/general/fondo_banner_2.png');">
-
-    <div class="contaner_general row mx-auto h-100">
-        <div id="banner-main_text" class="d-flex align-items-center">
-            <div class="">
-                <p class="title_banner">Especialízate y adquiere mejores oportunidades laborales</p>
-                <p class="border_banner"></p>
-                <p class="text_banner">FN PERÚ es una comunidad de aprendizaje en línea, que cuenta con cursos especializados y actualizados para profesionales creativos y deseosos de aprender. ¡Explora tu creatividad!</p>
-                <p class="mt-3"><a class="button" href="#cursos">VER LOS CURSOS</a></p>
-            </div>
+        <!-- Indicators -->
+        <div class="carousel-indicators hero-indicators">
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
 
-        <div id="banner-main_imagen-dos">
-            <img src="<?= $assets_url ?>/admin/images/general/banner_imagen_tres.png" alt="">
-        </div>
-    </div>
+        <!-- Carousel Inner -->
+        <div class="carousel-inner h-100">
 
-</div>
-
-<div id="info_banner" class="mx-0">
-    <div class="">
-        <i class="icofont-certificate-alt-1 fs-35 me-2"></i>
-        <span class="align-top me-4">Certificación Física y Digital</span>
-    </div>
-
-    <div class="">
-        <i class="fa-solid fa-chalkboard-user fs-32 me-2"></i>
-        <span class="align-top me-4">Curso de Básico a Experto</span>
-    </div>
-
-    <div class="">
-        <i class="fa-solid fa-gear fs-32 me-2"></i>
-        <span class="align-top">Ingenieros Expertos</span>
-    </div>
-</div>
-
-<?php } ?>
-
-<div class="contaner_general mt-3">
-    <span class="title_antes_cursos" id="urbanizaciones">Habilitaciones Urbanas</span>
-</div>
-
-<div class="contaner_general">
-    <div class="latest-products">
-        <div class="contaner_edit container">
-            <div class="row content_cursos_row">
-
-                <?php foreach ($urbanization as $key => $value) { ?>
-
-                    <div class="col-12 col-lg-6">
-                        <a class="product-item urbanization-item d-block" href="<?= $base_url ?>/urbanizaciones/ver/<?= $value['id'] ?>">
-
-                            <img class="mw-100" src="<?= $assets_url ?>/admin/images/urbanization/<?= ($value['image'] == '') ? 'sin_imagen.jpg' : $value['image'] ?>" alt="">
-
-                            <div class="down-content">
-                                <h4 class="text-center text-dark"><?= $value['name'] ?></h4>
-
-                                <p class="text_info_curso fs-18 mb-0">
-                                    <span class="fw-600 me-2">Ubicación - Urbanización:</span>
-
-                                    <?php if ($value['coordinates']) { ?>
-                                        <span data-href="https://www.google.com/maps?q=<?= $value['coordinates'] ?>" class="span_maps me-2 text-primary fw-500 text-decoration-none">
-                                            Google Maps <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                                        </span>
-                                    <?php } else { ?>
-                                        ---
-                                    <?php } ?>
-
-                                </p>
-
-                                <p class="text_info_curso fs-18 mb-0">
-                                    <span class="fw-600 me-2">Ubicación - Oficina:</span>
-
-                                    <?php if ($value['office']) { ?>
-                                        <span data-href="https://www.google.com/maps?q=<?= $value['office'] ?>" class="span_maps me-2 text-primary fw-500 text-decoration-none">
-                                            Google Maps <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                                        </span>
-                                    <?php } else { ?>
-                                        ---
-                                    <?php } ?>
-
-                                </p>
-
-                                <p class="text-start mt-2 text_info_curso fs-16 matriculas_abiertas mb-0 text-dark"><span class="fw-400 me-2">Precios desde:</span></p>
-
-                                <div class="row mx-0 mt-2">
-                                    <div class="div_for_precio d-flex justify-content-center align-items-center">
-                                        <div class="mb-1">S/ <?= $value['price'] == null ? '-.--' : $value['price'] ?></div>
-                                    </div>
-                                    <div class="div_for_bloque pe-0">
-                                        <div class="div_for_inscribete ">¡COTIZA AHORA!</div>
-                                    </div>
-                                </div>
-                            </div>
+            <!-- Slide 1 -->
+            <div class="carousel-item active hero-slide hero-slide-fallback">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fa-solid fa-award"></i>
+                        <span>N° 1 en Nueva Cajamarca</span>
+                    </div>
+                    <h1 class="hero-title">
+                        La <span class="accent">#1</span> en Habilitaciones Urbanas en la Selva Peruana
+                    </h1>
+                    <p class="hero-subtitle">
+                        Transformamos terrenos en sueños. Más de 500 familias ya confían en F&N Constructores S.A.C. para hacer realidad sus proyectos de vivienda.
+                    </p>
+                    <div class="hero-cta-group">
+                        <a href="<?= $base_url ?>/urbanizaciones" class="hero-cta hero-cta-primary">
+                            <i class="fa-solid fa-building"></i> Ver Urbanizaciones
+                        </a>
+                        <a href="<?= $base_url ?>/cursos" class="hero-cta hero-cta-secondary">
+                            <i class="fa-solid fa-graduation-cap"></i> Ver Cursos
                         </a>
                     </div>
-
-                <?php }
-
-                if ($urbanization == []) { ?>
-
-                    <div class="bg-white text-center fs-18 py-3">No hay Habilitaciones Urbanas que mostrar. Muy pronto estarán disponibles.</div>
-
-                <?php } ?>
-
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="justify-content-center header_fn_peru d-flex align-items-end">
-    <p class="h1_antes_curso">FN PERÚ</p>
-</div>
-
-<div class="borer_antes_cursos"></div>
-
-<div class="contaner_general">
-    <span class="title_antes_cursos" id="cursos">Cursos</span>
-</div>
-
-<div class="color_back_fondo">
-    <div class="contaner_general">
-        <div class="latest-products">
-            <div class="contaner_edit container">
-                <div class="row content_cursos_row">
-
-                    <?php foreach ($cursos as $key => $value) { ?>
-
-                        <div class="container_product">
-                            <a class="product-item d-block" href="<?= $base_url ?>/cursos/ver/<?= $value['curso_id'] ?>">
-
-                                <img src="<?= $assets_url ?>/admin/images/cursos/<?= ($value['curso_img_main'] == '') ? 'sin_imagen.jpg' : $value['curso_img_main'] ?>" alt="">
-
-                                <div class="down-content">
-                                    <h4 class="text-center text-dark"><?= $value['curso_nombre'] ?></h4>
-                                    <p class="text_info_curso fs-18 mb-0"><span class="fw-600 me-2">Duración:</span> <?= (!isset($value['lanz_duracion'])) ? '-- Meses' : $value['lanz_duracion'] ?></p>
-                                    <p class="text_info_curso fs-18 matriculas_abiertas mb-0 <?= (!isset($value['lanzamiento_costo'])) ? 'text-danger' : '' ?>"><span class="fw-600 me-2">Matrícula:</span> <?= (!isset($value['lanzamiento_costo'])) ? 'Muy Pronto' : 'Abierta' ?></p>
-                                    <div class="row mx-0 mt-3   ">
-                                        <div class="div_for_precio d-flex justify-content-center align-items-center">
-                                            <div class="mb-1">S/ <?= (!isset($value['lanzamiento_costo'])) ? '-.--' : $value['lanzamiento_costo'] ?></div>
-                                        </div>
-                                        <div class="div_for_bloque pe-0">
-                                            <div class="div_for_primiun">PREMIUM</div>
-                                            <div class="div_for_inscribete ">INSCRÍBETE AHORA</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <span class="hero-stat-number">500+</span>
+                            <span class="hero-stat-label">Familias</span>
                         </div>
+                        <div class="hero-stat-divider"></div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-number">10+</span>
+                            <span class="hero-stat-label">Proyectos</span>
+                        </div>
+                        <div class="hero-stat-divider"></div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-number">8</span>
+                            <span class="hero-stat-label">Años</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                    <?php }
+            <!-- Slide 2 -->
+            <div class="carousel-item hero-slide hero-slide-fallback">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fa-solid fa-city"></i>
+                        <span>Líderes en Desarrollo Urbano</span>
+                    </div>
+                    <h1 class="hero-title">
+                        Expertos en Desarrollo Urbano desde <span class="accent">2015</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Proyectos que impulsan el crecimiento de la Amazonía peruana con infraestructura de calidad, planificación sostenible y el respaldo de ingenieros especializados.
+                    </p>
+                    <div class="hero-cta-group">
+                        <a href="<?= $base_url ?>/urbanizaciones" class="hero-cta hero-cta-primary">
+                            <i class="fa-solid fa-map-location-dot"></i> Conoce Nuestras Obras
+                        </a>
+                        <a href="https://wa.me/51990252507?text=Hola,%20quiero%20información%20sobre%20urbanizaciones" target="_blank" class="hero-cta hero-cta-secondary">
+                            <i class="fa-brands fa-whatsapp"></i> Contactar Ahora
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <span class="hero-stat-number">100%</span>
+                            <span class="hero-stat-label">Compromiso</span>
+                        </div>
+                        <div class="hero-stat-divider"></div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-number">15+</span>
+                            <span class="hero-stat-label">Hectáreas</span>
+                        </div>
+                        <div class="hero-stat-divider"></div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-number">24/7</span>
+                            <span class="hero-stat-label">Soporte</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                    if ($cursos == []) { ?>
-
-                        <div class="bg-white text-center fs-18 py-3">No hay cursos que mostrar. Muy pronto estarán disponibles.</div>
-
+            <!-- Slide 3 -->
+            <div class="carousel-item hero-slide hero-slide-escuela">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fa-solid fa-book-open"></i>
+                        <span>Aprende con los Mejores</span>
+                    </div>
+                    <h1 class="hero-title">
+                        Capacitación Profesional de <span class="accent">Alto Nivel</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Cursos y talleres especializados dictados por ingenieros con años de experiencia. Certificación física y digital para impulsar tu carrera.
+                    </p>
+                    <div class="hero-cta-group">
+                        <a href="<?= $base_url ?>/cursos" class="hero-cta hero-cta-primary">
+                            <i class="fa-solid fa-graduation-cap"></i> Ver Cursos
+                        </a>
+                        <?php if (!empty($web_config['campus_virtual_visible'])) { ?>
+                        <a href="<?= $base_url ?>/campus" target="_blank" class="hero-cta hero-cta-secondary">
+                            <i class="fa-solid fa-university"></i> Campus Virtual
+                        </a>
                         <?php } ?>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <span class="hero-stat-number">50+</span>
+                            <span class="hero-stat-label">Cursos</span>
+                        </div>
+                        <div class="hero-stat-divider"></div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-number">1000+</span>
+                            <span class="hero-stat-label">Alumnos</span>
+                        </div>
+                        <div class="hero-stat-divider"></div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-number">100%</span>
+                            <span class="hero-stat-label">Online</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                    <div class="container_product mb-0"></div>
-                    <div class="container_product mb-0"></div>
-                    <div class="container_product mb-0"></div>
+        </div>
 
+        <!-- Carousel Controls -->
+        <button class="carousel-control-prev hero-control hero-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="hero-control-icon"><i class="fa-solid fa-chevron-left"></i></span>
+            <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next hero-control hero-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="hero-control-icon"><i class="fa-solid fa-chevron-right"></i></span>
+            <span class="visually-hidden">Siguiente</span>
+        </button>
+
+    </div>
+</section>
+
+
+<!-- ===== Sección Sobre Nosotros ===== -->
+<section class="about-section py-5">
+    <div class="container">
+
+        <!-- Header Section -->
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-8 text-center">
+                <span class="about-label animate__animated animate__fadeInDown">Sobre Nosotros</span>
+                <h2 class="about-title animate__animated animate__fadeInUp">
+                    Líderes en Habilitaciones Urbanas en la <span class="text-accent">Selva Peruana</span>
+                </h2>
+                <p class="about-text-lead animate__animated animate__fadeInUp animate__delay-1s">
+                    Transformamos terrenos en sueños. Más de 8 años construyendo comunidades con infraestructura de calidad en Nueva Cajamarca y la Amazonía peruana.
+                </p>
+            </div>
+        </div>
+
+        <!-- Stats Cards Row -->
+        <div class="row g-4 mb-5">
+            <div class="col-6 col-lg-3">
+                <div class="about-stat-card text-center animate__animated animate__fadeInUp" data-delay="0">
+                    <div class="about-stat-icon">
+                        <i class="fa-solid fa-house-chimney"></i>
+                    </div>
+                    <div class="about-stat-number">500+</div>
+                    <div class="about-stat-label">Familias Confían</div>
+                </div>
+            </div>
+            <div class="col-6 col-lg-3">
+                <div class="about-stat-card text-center animate__animated animate__fadeInUp" data-delay="100">
+                    <div class="about-stat-icon">
+                        <i class="fa-solid fa-city"></i>
+                    </div>
+                    <div class="about-stat-number">10+</div>
+                    <div class="about-stat-label">Proyectos</div>
+                </div>
+            </div>
+            <div class="col-6 col-lg-3">
+                <div class="about-stat-card text-center animate__animated animate__fadeInUp" data-delay="200">
+                    <div class="about-stat-icon">
+                        <i class="fa-solid fa-calendar-check"></i>
+                    </div>
+                    <div class="about-stat-number">8+</div>
+                    <div class="about-stat-label">Años Experiencia</div>
+                </div>
+            </div>
+            <div class="col-6 col-lg-3">
+                <div class="about-stat-card text-center animate__animated animate__fadeInUp" data-delay="300">
+                    <div class="about-stat-icon">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <div class="about-stat-number">1000+</div>
+                    <div class="about-stat-label">Alumnos Capacitados</div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="contaner_general pt-5">
-        <span class="title_antes_cursos" id="talleres">Talleres</span>
-    </div>
-
-    <div class="contaner_general">
-        <div class="latest-products mt-3">
-            <div class="contaner_edit container mb-5">
-                <div class="row content_cursos_row">
-
-                    <div class="bg-white text-center fs-18 py-3">No hay talleres que mostrar. Muy pronto estarán disponibles.</div>
-
+        <!-- Feature Cards Grid -->
+        <div class="row g-4 mb-5">
+            <div class="col-md-6 col-lg-3">
+                <div class="about-card animate__animated animate__fadeInUp" data-delay="0">
+                    <div class="about-card-icon">
+                        <i class="fa-solid fa-file-shield"></i>
+                    </div>
+                    <h5 class="about-card-title">Proyectos Certificados</h5>
+                    <p class="about-card-text">Documentación legal y técnica completa para cada proyecto.</p>
+                    <div class="about-card-hover"></div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="about-card animate__animated animate__fadeInUp" data-delay="100">
+                    <div class="about-card-icon">
+                        <i class="fa-solid fa-users-gear"></i>
+                    </div>
+                    <h5 class="about-card-title">Equipo Profesional</h5>
+                    <p class="about-card-text">Ingenieros y arquitectos especializados en desarrollo urbano.</p>
+                    <div class="about-card-hover"></div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="about-card animate__animated animate__fadeInUp" data-delay="200">
+                    <div class="about-card-icon">
+                        <i class="fa-solid fa-road"></i>
+                    </div>
+                    <h5 class="about-card-title">Infraestructura</h5>
+                    <p class="about-card-text">Servicios básicos, vías pavimentadas y áreas verdes.</p>
+                    <div class="about-card-hover"></div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="about-card animate__animated animate__fadeInUp" data-delay="300">
+                    <div class="about-card-icon">
+                        <i class="fa-solid fa-handshake"></i>
+                    </div>
+                    <h5 class="about-card-title">Atención 24/7</h5>
+                    <p class="about-card-text">Acompañamiento desde la consulta hasta la entrega de tu lote.</p>
+                    <div class="about-card-hover"></div>
                 </div>
             </div>
         </div>
-    </div>
 
+        <!-- CTA -->
+        <div class="text-center animate__animated animate__fadeInUp animate__delay-1s">
+            <a href="<?= $base_url ?>/nosotros" class="btn btn-about-primary">
+                <i class="fa-solid fa-arrow-right"></i> Conocer Más Sobre Nosotros
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===== Sección Call to Action (Parallax Relacional) ===== -->
+<section class="parallax-cta-section" style="background-image: url('<?= $assets_url ?>/admin/images/general/fondo_banner_2.png');">
+    <div class="parallax-cta-overlay"></div>
+    <div class="parallax-cta-container">
+        <div class="parallax-cta-content">
+            <span class="parallax-cta-tag animate__animated animate__fadeInUp">PROYECTANDO EL FUTURO</span>
+            <h2 class="parallax-cta-title animate__animated animate__fadeInUp">Construimos Hogares, Formamos Profesionales</h2>
+            <p class="parallax-cta-desc animate__animated animate__fadeInUp">
+                Impulsamos el desarrollo integral de la Amazonía peruana a través de habilitaciones urbanas sostenibles y educación de alto nivel en ingeniería y arquitectura.
+            </p>
+            <div class="parallax-cta-buttons animate__animated animate__fadeInUp">
+                <a href="<?= $base_url ?>/urbanizaciones" class="btn-parallax btn-parallax-primary">
+                    <i class="fa-solid fa-map-location-dot"></i> Conocer Urbanizaciones
+                </a>
+                <a href="<?= $base_url ?>/cursos" class="btn-parallax btn-parallax-secondary">
+                    <i class="fa-solid fa-graduation-cap"></i> Explorar Cursos y Talleres
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== Sección de Nubes (Transición) ===== -->
+<section class="antes_footer cta-to-footer-divider">
     <div class="elementor-shape elementor-shape-top element_nubes" data-negative="false">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 283.5 27.8" preserveAspectRatio="xMidYMax slice">
             <path class="elementor-shape-fill" d="M0 0v6.7c1.9-.8 4.7-1.4 8.5-1 9.5 1.1 11.1 6 11.1 6s2.1-.7 4.3-.2c2.1.5 2.8 2.6 2.8 2.6s.2-.5 1.4-.7c1.2-.2 1.7.2 1.7.2s0-2.1 1.9-2.8c1.9-.7 3.6.7 3.6.7s.7-2.9 3.1-4.1 4.7 0 4.7 0 1.2-.5 2.4 0 1.7 1.4 1.7 1.4h1.4c.7 0 1.2.7 1.2.7s.8-1.8 4-2.2c3.5-.4 5.3 2.4 6.2 4.4.4-.4 1-.7 1.8-.9 2.8-.7 4 .7 4 .7s1.7-5 11.1-6c9.5-1.1 12.3 3.9 12.3 3.9s1.2-4.8 5.7-5.7c4.5-.9 6.8 1.8 6.8 1.8s.6-.6 1.5-.9c.9-.2 1.9-.2 1.9-.2s5.2-6.4 12.6-3.3c7.3 3.1 4.7 9 4.7 9s1.9-.9 4 0 2.8 2.4 2.8 2.4 1.9-1.2 4.5-1.2 4.3 1.2 4.3 1.2.2-1 1.4-1.7 2.1-.7 2.1-.7-.5-3.1 2.1-5.5 5.7-1.4 5.7-1.4 1.5-2.3 4.2-1.1c2.7 1.2 1.7 5.2 1.7 5.2s.3-.1 1.3.5c.5.4.8.8.9 1.1.5-1.4 2.4-5.8 8.4-4 7.1 2.1 3.5 8.9 3.5 8.9s.8-.4 2 0 1.1 1.1 1.1 1.1 1.1-1.1 2.3-1.1 2.1.5 2.1.5 1.9-3.6 6.2-1.2 1.9 6.4 1.9 6.4 2.6-2.4 7.4 0c3.4 1.7 3.9 4.9 3.9 4.9s3.3-6.9 10.4-7.9 11.5 2.6 11.5 2.6.8 0 1.2.2c.4.2.9.9.9.9s4.4-3.1 8.3.2c1.9 1.7 1.5 5 1.5 5s.3-1.1 1.6-1.4c1.3-.3 2.3.2 2.3.2s-.1-1.2.5-1.9 1.9-.9 1.9-.9-4.7-9.3 4.4-13.4c5.6-2.5 9.2.9 9.2.9s5-6.2 15.9-6.2 16.1 8.1 16.1 8.1.7-.2 1.6-.4V0H0z"></path>
         </svg>
     </div>
-</div>
+</section>
 
 <div class="antes_footer">
     <div class="contaner_general d-flex">
@@ -199,8 +300,8 @@
             <div class="border_line"></div>
             <p class="text">Somos un grupo de profesionales capacitados en el área de la ingeniería y nuestra pasión es enseñar, capacitar e innovar, temas relacionados con la ingeniería y arquitectura. Nuestra institución no sólo se preocupa por brindar la mejor formación profesional, sino que también se centra en fomentar los valores que hagan de cada miembro de la comunidad</p>
             <div class="text-center">
-                <a class="btn_cursos" href="#cursos">CURSOS</a>
-                <a class="btn_talleres" href="#talleres">TALLERES</a>
+                <a class="btn_cursos" href="<?= $base_url ?>/cursos">CURSOS</a>
+                <a class="btn_talleres" href="<?= $base_url ?>/talleres">TALLERES</a>
             </div>
         </div>
 

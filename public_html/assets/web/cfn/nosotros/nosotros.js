@@ -31,4 +31,26 @@ $( document ).ready(function() {
         }
     });
 
+    // Animate on scroll
+    const animatedElements = document.querySelectorAll('.animate__animated');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const anim = entry.target.getAttribute('data-animation') || 'fadeInUp';
+                const delay = entry.target.getAttribute('data-delay') || 0;
+                setTimeout(() => {
+                    entry.target.style.opacity = '1';
+                    entry.target.classList.add('animate__' + anim);
+                }, parseInt(delay));
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    animatedElements.forEach(el => {
+        el.style.opacity = '0';
+        observer.observe(el);
+    });
+
 });

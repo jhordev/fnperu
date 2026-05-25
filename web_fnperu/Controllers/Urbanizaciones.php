@@ -16,6 +16,17 @@
             parent::__construct();
         }
 
+        public function index()
+        {
+            $urbanization = new UrbanizationModel();
+            $data['urbanization'] = $urbanization -> getLast();
+
+            $data['page_title'] = 'Habilitaciones Urbanas';
+            $data['page_active'] = 'urbanizaciones';
+
+            $this -> view(['WebTemplate/header', 'Urbanization/index', 'WebTemplate/footer'], $data);
+        }
+
         public function ver(int $idUrbanization)
         {
             $urbanization = new UrbanizationModel();

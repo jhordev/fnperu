@@ -1,27 +1,56 @@
-$( document ).ready(function() {
+$(document).ready(function () {
+    "use strict";
 
-	"use strict";
 
-    $("#preloader_page").animate({
-        'opacity': '0'
-    }, 600, function(){
-        setTimeout(function(){
-            $("#preloader_page").css("visibility", "hidden").fadeOut();
-        }, 300);
+
+    /* --- Navbar scroll effect --- */
+    var navbar = $("#navbar");
+
+    $(window).on("scroll.navbar", function () {
+        navbar.toggleClass("scrolled", $(this).scrollTop() > 50);
     });
 
-    let menu_inferior = $('#menu_inferior');
+    /* --- Mobile menu state --- */
+    var toggle     = $("#navbarToggle");
+    var mobileMenu = $("#navbarMobile");
+    var mobileClose = $("#mobileClose");
+    var isOpen     = false;
 
-    $('.btn_menu_main').click(function() {
+    function openMenu() {
+        isOpen = true;
+        mobileMenu.addClass("open");
+        toggle.addClass("active").attr("aria-expanded", "true");
+        $("body").css("overflow", "hidden");
+    }
 
-        menu_inferior.toggle();
+    function closeMenu() {
+        isOpen = false;
+        mobileMenu.removeClass("open");
+        toggle.removeClass("active").attr("aria-expanded", "false");
+        $("body").css("overflow", "");
+    }
 
+    toggle.on("click", function () {
+        isOpen ? closeMenu() : openMenu();
     });
 
-    menu_inferior.click(function() {
+    mobileClose.on("click", closeMenu);
 
-        menu_inferior.toggle();
-
+    /* Close when clicking the dark backdrop (outside the panel) */
+    mobileMenu.on("click", function (e) {
+        if ($(e.target).is(mobileMenu)) {
+            closeMenu();
+        }
     });
 
+    /* Close on any nav link tap */
+    mobileMenu.find("a").on("click", closeMenu);
+
+    /* Close on Escape key */
+    $(document).on("keydown.mobilemenu", function (e) {
+        if (e.key === "Escape" && isOpen) {
+            closeMenu();
+            toggle.trigger("focus");
+        }
+    });
 });

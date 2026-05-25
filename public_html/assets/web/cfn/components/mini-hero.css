@@ -1,0 +1,75 @@
+/* ===== MINI HERO SECTION ===== */
+:root {
+    --mini-hero-h: calc(60vh - 50px);
+}
+
+@media (max-width: 991px) {
+    :root { --mini-hero-h: 40vh; }
+}
+
+@media (max-width: 767px) {
+    :root { --mini-hero-h: 30vh; }
+}
+
+.mini-hero-section {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    min-height: var(--mini-hero-h);
+}
+
+/* Force the Bootstrap carousel and all its layers to match the mini-hero height */
+.mini-hero-section .carousel,
+.mini-hero-section .carousel-inner,
+.mini-hero-section .carousel-item,
+.mini-hero-section .mini-hero-slide {
+    height: var(--mini-hero-h);
+    min-height: var(--mini-hero-h);
+}
+
+.mini-hero-section .mini-hero-slide {
+    position: relative;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #0e2742;
+}
+
+.mini-hero-section .hero-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.38);
+    border: 1.5px solid rgba(255, 255, 255, 0.22);
+    color: #fff;
+    opacity: 1;
+    z-index: 5;
+    transition: all 0.25s;
+    margin: 0;
+}
+
+.mini-hero-section .hero-control.hero-control-prev { left: 20px; }
+.mini-hero-section .hero-control.hero-control-next { right: 20px; }
+.mini-hero-section .hero-control:hover { background-color: #f5c518; border-color: #f5c518; color: #1a1a1a; transform: translateY(-50%) scale(1.1); }
+.mini-hero-section .hero-control-icon { font-size: 16px; display: flex; align-items: center; justify-content: center; }
+
+.mini-hero-section .hero-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 5;
+    margin: 0;
+}
+.mini-hero-section .hero-indicators button {
+    width: 10px; height: 10px; border-radius: 50%; background-color: rgba(255, 255, 255, 0.40); border: 2px solid transparent; transition: all 0.28s; margin: 0; padding: 0; text-indent: -999px;
+}
+.mini-hero-section .hero-indicators button:hover, .mini-hero-section .hero-indicators button.active {
+    background-color: #f5c518; transform: scale(1.15);
+}

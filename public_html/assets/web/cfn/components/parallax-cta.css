@@ -1,0 +1,173 @@
+.parallax-cta-section {
+    position: relative;
+    width: 100%;
+    padding: 70px 20px 75px 20px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* Fallback for mobile and touch devices where parallax attachment is buggy */
+@media (hover: none), (max-width: 991px) {
+    .parallax-cta-section {
+        background-attachment: scroll;
+        padding: 50px 20px 85px 20px;
+    }
+}
+
+/* Cloud divider — separación limpia desde la CTA, nubes blancas sobre azul */
+.cta-to-footer-divider.antes_footer {
+    display: block;
+    margin-top: 150px;
+}
+
+/* Semi-transparent dark overlay for high contrast readability */
+.parallax-cta-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(10, 25, 47, 0.88) 0%,
+        rgba(14, 39, 66, 0.82) 50%,
+        rgba(10, 25, 47, 0.92) 100%
+    );
+    z-index: 1;
+}
+
+.parallax-cta-container {
+    position: relative;
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    z-index: 2;
+    text-align: center;
+}
+
+.parallax-cta-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Tag/Label */
+.parallax-cta-tag {
+    font-size: 12px;
+    font-weight: 800;
+    color: #f5c518;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    background-color: rgba(245, 197, 24, 0.1);
+    border: 1px solid rgba(245, 197, 24, 0.3);
+    padding: 6px 18px;
+    border-radius: 30px;
+    display: inline-block;
+}
+
+/* Title */
+.parallax-cta-title {
+    font-size: clamp(26px, 4vw, 44px);
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.25;
+    margin: 0 auto;
+    max-width: 800px;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Description */
+.parallax-cta-desc {
+    font-size: clamp(14px, 1.8vw, 17px);
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.65;
+    max-width: 680px;
+    margin: 0 auto 12px auto;
+}
+
+/* Buttons group */
+.parallax-cta-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+/* Custom premium buttons */
+.btn-parallax {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    font-size: 14.5px;
+    font-weight: 700;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 2px solid transparent;
+    letter-spacing: 0.3px;
+}
+
+.btn-parallax-primary {
+    background-color: #f5c518;
+    color: #111111;
+    border-color: #f5c518;
+    box-shadow: 0 4px 14px rgba(245, 197, 24, 0.25);
+}
+
+.btn-parallax-primary:hover {
+    background-color: #e0b010;
+    border-color: #e0b010;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(245, 197, 24, 0.45);
+    color: #111111;
+}
+
+.btn-parallax-secondary {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.btn-parallax-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.16);
+    border-color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+}
+
+/* Animations overlay hover effect inside wrapper to give dynamic feeling */
+.parallax-cta-section::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(245, 197, 24, 0.08) 0%, rgba(245, 197, 24, 0) 70%);
+    top: -50px;
+    right: -50px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.parallax-cta-section::before {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(10, 143, 224, 0.08) 0%, rgba(10, 143, 224, 0) 70%);
+    bottom: -100px;
+    left: -100px;
+    z-index: 1;
+    pointer-events: none;
+}

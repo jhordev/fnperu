@@ -41,9 +41,9 @@
             $auxUrlHost = $auxUrlHost[0];
             Helper::setDomain($auxUrlHost);
 
-            if ($auxUrlHost != $_SERVER['HTTP_HOST']){
-                redirect(Helper::base_url() . $this -> URLBase);
-            }
+            // if ($auxUrlHost != $_SERVER['HTTP_HOST']){
+            //     redirect(Helper::base_url() . $this -> URLBase);
+            // }
             /* VERIFICAR HOST */
 
             $url = !empty($_GET['url']) ? $_GET['url'] : 'Index';

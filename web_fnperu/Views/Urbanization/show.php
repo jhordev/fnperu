@@ -2,8 +2,8 @@
 
     <div class="row contaner_general mx-auto">
 
-        <div class="py-3 text-start" id="container_data_curso">
-            <p class="fw-800 fs-24 pt-3 pb-3" id="title_curso"><?= $urbanization['name'] ?></p>
+        <div class="py-4 py-lg-5 px-3 px-lg-4 text-start d-flex flex-column justify-content-center" id="container_data_curso">
+            <h1 class="fw-bolder pt-2 pb-2 text-white mb-0" style="font-size: clamp(28px, 5vw, 46px); line-height: 1.2;" id="title_curso"><?= $urbanization['name'] ?></h1>
             <p id="border_title_curso" class="mb-3"></p>
 
             <p class="fs-17 text_introduccion_uno text-justify"><?= $urbanization['introduction_one'] ?></p>
@@ -28,20 +28,20 @@
                 <?php } ?>
             </p>
 
-            <div class="">
+            <div class="d-grid d-md-flex gap-3 mt-4">
                 <?php if ($urbanization['plan'] != '') { ?>
 
-                    <a class="btn btn-warning px-4 py-2 mt-2 link_brochure" target="_blank" href="<?= $assets_url ?>/admin/docs/house-plans/<?= $urbanization['plan'] ?>">DESCARGAR PLANO <i class="ms-2 fa-solid fa-up-right-from-square"></i></a>
+                    <a class="btn btn-warning px-4 py-3 py-md-2 link_brochure fw-700 shadow-sm d-flex align-items-center justify-content-center text-dark" style="border-radius: 8px; font-size: 16px;" target="_blank" href="<?= $assets_url ?>/admin/docs/house-plans/<?= $urbanization['plan'] ?>">DESCARGAR PLANO <i class="ms-2 fa-solid fa-up-right-from-square"></i></a>
 
                 <?php }
 
                 if ($firstContacts != null) { ?>
-                    <a target="_blank" class="data_curso_first_contact text-dark ms-3 mt-2 btn-success btn" href="https://wa.me/51<?= $firstContacts['whatsapp'] ?>?text=Hola,%20información%20por%20favor"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+                    <a target="_blank" class="data_curso_first_contact text-white ms-0 ms-md-2 btn-success btn py-3 py-md-2 fw-700 shadow-sm d-flex align-items-center justify-content-center" style="border-radius: 8px; font-size: 16px;" href="https://wa.me/51<?= $firstContacts['whatsapp'] ?>?text=Hola,%20información%20por%20favor"><i class="fa-brands fa-whatsapp fs-5 me-2"></i> WhatsApp</a>
                 <?php } ?>
             </div>
         </div>
 
-        <div class="py-3" id="container_img_principal">
+        <div class="py-4 py-lg-5 px-0 px-md-3 px-lg-4 d-flex align-items-center justify-content-center" id="container_img_principal">
             <div class="overflow-hidden w-100">
 
                 <?php if ($urbanization['video_overlay'] == 1 && $urbanization['youtube_video'] != '') { ?>
@@ -124,7 +124,7 @@
 
             <?php if ($urbanization['introduction_two'] != '') { ?>
 
-                <div class="card mb-4">
+                <div class="card mb-4 border-0 shadow-sm" style="border-radius: 14px; overflow: hidden;">
                     <h5 class="card-header py-3 fw-600 border-bottom-0">INTRODUCCIÓN:</h5>
 
                     <div class="background_card_body">
@@ -139,7 +139,7 @@
 
             if ($modules != []) { ?>
 
-                <div class="card mb-4">
+                <div class="card mb-4 border-0 shadow-sm" style="border-radius: 14px; overflow: hidden;">
                     <h5 class="card-header py-3 fw-600 border-bottom-0">CONTENIDO DEL PROYECTO:</h5>
 
                     <div class="background_card_body">
@@ -192,7 +192,7 @@
 
             if ($benefits != []) { ?>
 
-                <div class="card mb-4">
+                <div class="card mb-4 border-0 shadow-sm" style="border-radius: 14px; overflow: hidden;">
                     <h5 class="card-header py-3 fw-600 border-bottom-0">BENEFICIOS:</h5>
 
                     <div class="background_card_body">
@@ -217,7 +217,7 @@
 
             if ($docs != []) { ?>
 
-                <div class="card mb-4">
+                <div class="card mb-4 border-0 shadow-sm" style="border-radius: 14px; overflow: hidden;">
                     <h5 class="card-header py-3 fw-600 border-bottom-0">DOCUMENTOS ENTREGADOS:</h5>
 
                     <div class="background_card_body">
@@ -241,7 +241,7 @@
             <?php } ?>
 
             <?php if ($contacts != []) { ?>
-                <div class="card procedimiento_matricula pb-4">
+                <div class="card procedimiento_matricula pb-4 border-0 shadow-sm" style="border-radius: 14px; overflow: hidden;">
 
                     <h5 class="card-header py-3 fw-600 border-bottom-0">PARA ATENCIÓN PERSONALIZADA COMUNÍCATE A LOS SIGUIENTES CONTACTOS:</h5>
 
@@ -277,12 +277,12 @@
         </section>
 
         <section id="seccion_lateral">
-            <div class="card">
+            <div class="card border-0 shadow-sm" style="border-radius: 14px; overflow: hidden;">
                 <div class="card-body">
 
                     <p class="mb-1 fs-17 fw-500">Precios desde:</p>
 
-                    <button class="btn btn-danger py-3 px-5 fs-25 rounded-0 btn_precio_big">S/ <?= $urbanization['price'] == null ? '-.--' : $urbanization['price'] ?></button>
+                    <button class="btn btn-danger py-3 px-4 fs-25 btn_precio_big w-100 fw-bold shadow-sm" style="border-radius: 10px;">S/ <?= $urbanization['price'] == null ? '-.--' : $urbanization['price'] ?></button>
 
                     <div class="bordecito_minimal"></div>
 

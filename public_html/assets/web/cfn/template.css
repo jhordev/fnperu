@@ -5,8 +5,8 @@
 ============================================================================= */
 
 /* BASE */
-@import 'base/reset.css';
-@import 'base/typography.css';
+@import 'base/reset.css?v=0.0.1.1';
+@import 'base/typography.css?v=0.0.1.0';
 @import 'base/layout.css';
 @import 'base/utilities.css';
 
@@ -17,6 +17,10 @@
 @import 'components/buttons.css';
 @import 'components/badges.css';
 @import 'components/detail-shared.css';
+@import 'components/hero.css?v=0.0.1.1';
+@import 'components/mini-hero.css';
+@import 'components/parallax-cta.css?v=0.0.1.1';
+
 
 /* PAGES */
 @import 'pages/inicio.css';
