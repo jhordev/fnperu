@@ -2,6 +2,7 @@
 
     namespace FNPERU\Controllers;
 
+    use ADMINFN\Models\FNPeru\BannersModel;
     use ADMINFN\Models\FNPeru\BeneficioCursoModel;
     use ADMINFN\Models\FNPeru\UrbanizationModel;
     use FNPERU\Core\BaseController;
@@ -158,6 +159,9 @@
             for ($index = ($countLanza - 1); $index >= 0; $index--) {
                 array_unshift($data['cursos'], $newArrayLanza[$index]);
             }
+
+            $bannersModel = new BannersModel;
+            $data['banners'] = $bannersModel->getActivosBySeccion(0);
 
             $this -> view(['WebTemplate/header', 'Cursos/listado', 'WebTemplate/footer'], $data);
         }

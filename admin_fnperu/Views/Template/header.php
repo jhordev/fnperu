@@ -216,6 +216,12 @@
                                 </a>
                             </li>
                             <li>
+                                <a href="<?= $base_url ?>/banners" class="<?= ($page_active == 'banners') ? 'mm-active' : '' ?>">
+                                    <i class="metismenu-icon fa-solid fa-images"></i>
+                                    Banners Hero
+                                </a>
+                            </li>
+                            <li>
                                 <a href="<?= $base_url ?>/accesosdirectosmoodle" class="<?= ($page_active == 'accesos_directos') ? 'mm-active' : '' ?>">
                                     <i class="metismenu-icon fa-solid fa-compass"></i>
                                     Accesos Directos

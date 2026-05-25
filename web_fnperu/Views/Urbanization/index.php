@@ -1,24 +1,34 @@
+<?php
+    $heroBanners = (!empty($banners)) ? $banners : [
+        ['banner_imagen' => null, '_static' => $assets_url . '/admin/images/general/urb_banner_1.png'],
+        ['banner_imagen' => null, '_static' => $assets_url . '/admin/images/general/urb_banner_2.png'],
+    ];
+?>
 <!-- ===== Mini Hero Section ===== -->
 <section class="mini-hero-section">
     <div id="miniHeroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="4500" data-bs-pause="hover">
 
         <!-- Indicators -->
         <div class="carousel-indicators hero-indicators">
-            <button type="button" data-bs-target="#miniHeroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#miniHeroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <?php foreach ($heroBanners as $i => $b): ?>
+            <button type="button" data-bs-target="#miniHeroCarousel" data-bs-slide-to="<?= $i ?>"
+                    <?= $i === 0 ? 'class="active" aria-current="true"' : '' ?>
+                    aria-label="Slide <?= $i + 1 ?>"></button>
+            <?php endforeach; ?>
         </div>
 
         <!-- Carousel Inner -->
         <div class="carousel-inner h-100">
-            <!-- Slide 1 -->
-            <div class="carousel-item active mini-hero-slide" style="background-image: url('<?= $assets_url ?>/admin/images/general/urb_banner_1.png');">
-            </div>
-            <!-- Slide 2 -->
-            <div class="carousel-item mini-hero-slide" style="background-image: url('<?= $assets_url ?>/admin/images/general/urb_banner_2.png');">
-            </div>
+            <?php foreach ($heroBanners as $i => $b):
+                $imgUrl = isset($b['_static']) ? $b['_static'] : $assets_url . '/admin/images/banners/' . $b['banner_imagen'];
+            ?>
+            <div class="carousel-item <?= $i === 0 ? 'active' : '' ?> mini-hero-slide"
+                 style="background-image: url('<?= $imgUrl ?>');"></div>
+            <?php endforeach; ?>
         </div>
 
-        <!-- Carousel Controls -->
+        <!-- Controls -->
+        <?php if (count($heroBanners) > 1): ?>
         <button class="carousel-control-prev hero-control hero-control-prev" type="button" data-bs-target="#miniHeroCarousel" data-bs-slide="prev">
             <span class="hero-control-icon"><i class="fa-solid fa-chevron-left"></i></span>
             <span class="visually-hidden">Anterior</span>
@@ -27,7 +37,7 @@
             <span class="hero-control-icon"><i class="fa-solid fa-chevron-right"></i></span>
             <span class="visually-hidden">Siguiente</span>
         </button>
-
+        <?php endif; ?>
     </div>
 </section>
 

@@ -1,6 +1,7 @@
 <?php
 
     namespace FNPERU\Controllers;
+    use ADMINFN\Models\FNPeru\BannersModel;
     use ADMINFN\Models\FNPeru\UrbanizationBenefitsModel;
     use ADMINFN\Models\FNPeru\UrbanizationContactModel;
     use ADMINFN\Models\FNPeru\UrbanizationDocModel;
@@ -20,6 +21,9 @@
         {
             $urbanization = new UrbanizationModel();
             $data['urbanization'] = $urbanization -> getLast();
+
+            $bannersModel = new BannersModel;
+            $data['banners'] = $bannersModel->getActivosBySeccion(1);
 
             $data['page_title'] = 'Habilitaciones Urbanas';
             $data['page_active'] = 'urbanizaciones';
