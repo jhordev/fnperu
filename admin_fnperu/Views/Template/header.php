@@ -192,6 +192,12 @@
                                 </a>
                             </li>
                             <li>
+                                <a href="<?= $base_url ?>/talleres" class="<?= ($page_active == 'talleres') ? 'mm-active' : '' ?>">
+                                    <i class="metismenu-icon fa-solid fa-chalkboard-user"></i>
+                                    Talleres
+                                </a>
+                            </li>
+                            <li>
                                 <a href="<?= $base_url ?>/lanzamientos" class="<?= ($page_active == 'lanzamientos') ? 'mm-active' : '' ?>">
                                     <i class="metismenu-icon fa-solid fa-calendar"></i>
                                     Lanzamientos

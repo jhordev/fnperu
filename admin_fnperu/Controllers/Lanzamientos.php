@@ -139,34 +139,32 @@
             $lanzamientoData = $lanzamientoModel -> getLanzamientosTable();
 
             $estado = [
-                '<div class="text-center">
-                    Culminado
-                </div>', 
-                '<div class="text-center fw-700 text-success active_lanza">
-                    Activo
-                </div>'
+                '<div class="text-center">Culminado</div>',
+                '<div class="text-center fw-700 text-success active_lanza">Activo</div>'
+            ];
+
+            $tipoBadge = [
+                '<div class="text-center"><span class="badge bg-primary">Curso</span></div>',
+                '<div class="text-center"><span class="badge bg-warning text-dark">Taller</span></div>'
             ];
 
             $action = [
-                ' d-block', 
-                '<div class="text-center', 
+                ' d-block',
+                '<div class="text-center',
                 '"> <a ',
-                ' type="button" class="fw-bold btn_ver_lanzamiento text-decoration-none text-primary">Ver Más <i class="fa-solid fa-angles-right"></i></a>
-                </div>'
+                ' type="button" class="fw-bold btn_ver_lanzamiento text-decoration-none text-primary">Ver Más <i class="fa-solid fa-angles-right"></i></a></div>'
             ];
-            
-            foreach ($lanzamientoData as $key => $value) 
-            { 
+
+            foreach ($lanzamientoData as $key => $value)
+            {
                 $lanzamientoData[$key]['numero'] = $key + 1;
+                $lanzamientoData[$key]['tipo_label'] = $tipoBadge[intval($value['curso_tipo'])];
                 $lanzamientoData[$key]['lanzamiento_estado'] = $estado[$value['lanzamiento_estado']];
-
                 $lanzamientoData[$key]['inicio_fin'] = '<div class="text-center">' . date('d/m/Y', strtotime($value['lanzamiento_inicio'])) . ' - ' . date('d/m/Y', strtotime($value['lanzamiento_fin'])) . '</div>';
-
                 $lanzamientoData[$key]['lanzamiento_costo'] = '<div class="text-center">S/ ' . $value['lanzamiento_costo'] . '</div>';
-
                 $lanzamientoData[$key]['lanzamiento_creacion'] = date('d-m-Y', strtotime($value['lanzamiento_creacion']));
 
-                $lanzamientoData[$key]['acciones'] = $action[1] . $action[0] . $action[2] . 
+                $lanzamientoData[$key]['acciones'] = $action[1] . $action[0] . $action[2] .
                 'data-idcurso="' . $value['curso_id'] . '"' .
                 'data-idlanzamiento="' . $value['lanzamiento_id'] . '"' .
                 'data-nombre="' . $value['curso_nombre'] . '"' .
@@ -175,13 +173,43 @@
                 'data-costo="' . $value['lanzamiento_costo'] . '"' .
                 'data-creacion="' . $lanzamientoData[$key]['lanzamiento_creacion'] . '"' .
                 'data-estado="' . (($value['lanzamiento_estado'] == 1) ? 'ACTIVO' : 'CULMINADO') . '"'
-                .  $action[3];
+                . $action[3];
                 $action[0] = '';
 
                 $lanzamientoData[$key]['lanzamiento_creacion'] = '<div class="text-center">' . $lanzamientoData[$key]['lanzamiento_creacion'] . '</div>';
             }
 
             json($lanzamientoData);
+        }
+
+        public function getTodos()
+        {
+            $cursosModel = new CursosModel;
+            $data = $cursosModel -> getTodosActivosTable();
+
+            $tipoBadge = [
+                '<div class="text-center"><span class="badge bg-primary">Curso</span></div>',
+                '<div class="text-center"><span class="badge bg-warning text-dark">Taller</span></div>'
+            ];
+
+            $estado = [
+                '<div class="text-center"><span class="position-relative pe-2">No Publicado<span class="position-absolute top-0 start-100 translate-bottom p-2 bg-info border border-light rounded-circle"></span></span></div>',
+                '<div class="text-center"><span class="position-relative pe-2">Publicado<span class="position-absolute top-0 start-100 translate-bottom p-2 bg-success border border-light rounded-circle"></span></span></div>'
+            ];
+
+            $action = [' d-block', '<div class="text-center', '"> <a data-id="', '" data-nombre="', '" class="fw-bold text-decoration-none text-primary btn_select_curso" type="button">Elegir <i class="fa-solid fa-hand-pointer"></i></a></div>'];
+
+            foreach ($data as $key => $value)
+            {
+                $data[$key]['numero']       = $key + 1;
+                $data[$key]['tipo_label']   = $tipoBadge[intval($value['curso_tipo'])];
+                $data[$key]['curso_publico'] = $estado[intval($value['curso_publico'])];
+                $data[$key]['acciones_select'] = $action[1] . $action[0] . $action[2] . $value['curso_id'] . $action[3] . $value['curso_nombre'] . $action[4];
+                $action[0] = '';
+                $data[$key]['curso_creacion'] = '<div class="text-center">' . date('d-m-Y', strtotime($value['curso_creacion'])) . '</div>';
+            }
+
+            json($data);
         }
 
         public function deleteLanzamiento()

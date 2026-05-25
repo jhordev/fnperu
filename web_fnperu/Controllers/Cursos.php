@@ -29,15 +29,9 @@
             $data['urbanization'] = $urbanization -> getLast();
 
             $cursos = new CursosModel;
-            $allCursos = $cursos -> getLastCursosPublicados();
-            $data['cursos'] = array_values(array_filter($allCursos, function($c) {
-                return stripos($c['curso_nombre'], 'taller') === false;
-            }));
+            $data['cursos'] = $cursos -> getLastCursosPublicados();
 
-            $cursosConLanzaRaw = $cursos -> getLastCursosPublicadosConPrecio(date('Y-m-d'));
-            $cursosConLanza = array_values(array_filter($cursosConLanzaRaw, function($c) {
-                return stripos($c['curso_nombre'], 'taller') === false;
-            }));
+            $cursosConLanza = $cursos -> getLastCursosPublicadosConPrecio(date('Y-m-d'));
             $newArrayLanza = array();
             $auxIdCurso = null;
             $idArrayCursosConLanza = [];
@@ -62,17 +56,13 @@
 
                     if ($value['lanz_duracion'] == 0) {
                         $value['lanz_duracion'] = $interval -> format('%d');
-
                         $value['lanz_duracion'] = ($value['lanz_duracion'] < 10) ? '0' . $value['lanz_duracion'] : $value['lanz_duracion'];
-
                         if ($value['lanz_duracion'] == 1) {
                             $value['lanz_duracion'] .= ' Día';
                         } else {
                             $value['lanz_duracion'] .= ' Días';
                         }
-                    }
-                    else if($value['lanz_duracion'] != 1)
-                    {
+                    } else if ($value['lanz_duracion'] != 1) {
                         $value['lanz_duracion'] .= ' Meses';
                     }
 
@@ -81,24 +71,17 @@
             }
 
             $countDataCurso = count($data['cursos']);
-
-            for ($index = 0; $index  < $countDataCurso; $index ++)
-            {
-                if ( isset($idArrayCursosConLanza[$data['cursos'][$index]['curso_id']]) )
-                {
+            for ($index = 0; $index < $countDataCurso; $index++) {
+                if (isset($idArrayCursosConLanza[$data['cursos'][$index]['curso_id']])) {
                     array_splice($data['cursos'], $index, 1);
                     $countDataCurso--;
                     $index--;
                 }
             }
 
-            $countLanza = count($newArrayLanza);
-
-            for ($index = ($countLanza - 1); $index >= 0; $index--) {
+            for ($index = (count($newArrayLanza) - 1); $index >= 0; $index--) {
                 array_unshift($data['cursos'], $newArrayLanza[$index]);
             }
-
-            //json($data['cursos']);
 
             $this -> view(['WebTemplate/header', 'Cursos/inicio', 'WebTemplate/footer'], $data);
         }
@@ -111,15 +94,9 @@
             $data['icofont'] = true;
 
             $cursos = new CursosModel;
-            $allCursos = $cursos -> getLastCursosPublicados();
-            $data['cursos'] = array_values(array_filter($allCursos, function($c) {
-                return stripos($c['curso_nombre'], 'taller') === false;
-            }));
+            $data['cursos'] = $cursos -> getLastCursosPublicados();
 
-            $cursosConLanzaRaw = $cursos -> getLastCursosPublicadosConPrecio(date('Y-m-d'));
-            $cursosConLanza = array_values(array_filter($cursosConLanzaRaw, function($c) {
-                return stripos($c['curso_nombre'], 'taller') === false;
-            }));
+            $cursosConLanza = $cursos -> getLastCursosPublicadosConPrecio(date('Y-m-d'));
             $newArrayLanza = array();
             $auxIdCurso = null;
             $idArrayCursosConLanza = [];

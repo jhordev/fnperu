@@ -7,17 +7,19 @@ $(document).ready(() => {
     let cursos_table = $('#cursos_table').DataTable({
         select: true,
         ajax: {
-            "url": base_url + '/cursos/getcursosactivos',
+            "url": base_url + '/lanzamientos/gettodos',
             "type": "get",
             "dataSrc": "",
         },
         columns: [
-            { data: 'numero' },
-            { data: 'curso_nombre' },
-            { data: 'curso_publico' },
-            { data: 'curso_creacion' },
-            { data: 'acciones_select' }
+            { data: 'numero',         width: '4%'  },
+            { data: 'tipo_label',     width: '8%'  },
+            { data: 'curso_nombre',   width: '45%' },
+            { data: 'curso_publico',  width: '13%' },
+            { data: 'curso_creacion', width: '13%' },
+            { data: 'acciones_select',width: '17%' }
         ],
+        autoWidth: false,
         language: LanguageDataTable
     });
 
@@ -30,6 +32,7 @@ $(document).ready(() => {
         },
         columns: [
             { data: 'numero' },
+            { data: 'tipo_label' },
             { data: 'curso_nombre' },
             { data: 'lanzamiento_costo' },
             { data: 'inicio_fin' },

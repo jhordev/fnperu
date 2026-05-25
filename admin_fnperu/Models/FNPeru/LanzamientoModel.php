@@ -43,7 +43,7 @@
             $update = $this -> query('SELECT * FROM cursos
             INNER JOIN lanzamiento ON lanzamiento.lanzamiento_curso = cursos.curso_id
             WHERE lanzamiento.lanzamiento_eliminado = 0 AND cursos.curso_estado = 1
-            ORDER BY lanzamiento.lanzamiento_estado DESC');
+            ORDER BY lanzamiento.lanzamiento_estado DESC, cursos.curso_tipo ASC');
             $result = $update -> execute();
 
             $result = $update -> fetchAll(\PDO::FETCH_ASSOC);

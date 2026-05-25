@@ -27,7 +27,8 @@
                             <thead>
                                 <tr>
                                     <th>N°</th>
-                                    <th>NOMBRE DEL CURSO</th>
+                                    <th>TIPO</th>
+                                    <th>NOMBRE</th>
                                     <th>COSTO</th>
                                     <th>INICIO - FIN</th>
                                     <th>ESTADO</th>
@@ -104,7 +105,7 @@
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title fw-bold" id="modal_cursosLabel">ELEGIR CURSOS</h5>
+                    <h5 class="modal-title fw-bold" id="modal_cursosLabel">ELEGIR CURSO / TALLER</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -112,7 +113,8 @@
                         <thead>
                             <tr>
                                 <th>N°</th>
-                                <th>NOMBRE DEL CURSO</th>
+                                <th>TIPO</th>
+                                <th>NOMBRE</th>
                                 <th>ESTADO</th>
                                 <th>CREACIÓN</th>
                                 <th>ACCIONES</th>
@@ -121,11 +123,9 @@
                         <tbody>
                         </tbody>
                     </table>
-                
                 </div>
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-white border border-primary btn-sm" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary btn-sm">Crear Curso</button>
                 </div>
             </div>
         </div>

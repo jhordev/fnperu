@@ -15,7 +15,7 @@
 
                             <div class="page-title-actions">
                                 <div class="d-inline-block">
-                                    <button class="btn btn-danger btn-sm" id="btn_delete_curso"><i class="fa-solid fa-trash-can me-2"></i>Eliminar Curso</button>
+                                    <button class="btn btn-danger btn-sm" id="btn_delete_curso"><i class="fa-solid fa-trash-can me-2"></i>Eliminar <?= isset($entity_label) ? $entity_label : 'Curso' ?></button>
                                 </div>
                             </div>
 
@@ -27,7 +27,7 @@
                         <span class="d-none" id="idCurso"><?= $curso['curso_id'] ?></span>
 
                         <div class="row">
-                            <div class="fw-500" style="width: 180px; margin-top: 4px">NOMBRE DEL CURSO: </div>
+                            <div class="fw-500" style="width: 180px; margin-top: 4px">NOMBRE DEL <?= strtoupper(isset($entity_label) ? $entity_label : 'CURSO') ?>: </div>
                             
                             <div class="w-auto me-3" id="view_edit_cancel" style="min-width: 163px; margin-top: 4px; margin-bottom: 4px"><?= $curso['curso_nombre'] ?></div>
                             

@@ -9,7 +9,7 @@
     use ADMINFN\Models\FNPeru\MaterialModel;
     use ADMINFN\Models\FNPeru\ModuloCursoModel;
 
-    class Cursos extends BaseController
+    class Talleres extends BaseController
     {
         public function __construct()
         {
@@ -19,28 +19,28 @@
 
         public function index()
         {
-            $data['page_title'] = 'Cursos';
-            $data['page_active'] = 'cursos';
+            $data['page_title'] = 'Talleres';
+            $data['page_active'] = 'talleres';
             $data['page_css'] = 'cursos/cursos';
-            $data['page_js'] = 'cursos/cursos';
+            $data['page_js'] = 'talleres/talleres';
             $data['page_datatable'] = true;
 
-            $this -> view(['Template/header', 'Cursos/cursos', 'Template/footer'], $data);
+            $this -> view(['Template/header', 'Talleres/talleres', 'Template/footer'], $data);
         }
         
         public function ordenar()
         {
-            $data['page_title'] = 'Ordenar Cursos';
-            $data['page_active'] = 'cursos';
-            // $data['page_css'] = 'cursos/cursos';
-            $data['page_js'] = 'cursos/ordenarcursos';
+            $data['page_title'] = 'Ordenar Talleres';
+            $data['page_active'] = 'talleres';
+            // $data['page_css'] = 'cursos/talleres';
+            $data['page_js'] = 'talleres/ordenartalleres';
             $data['page_sortable'] = true;
             // $data['page_datatable'] = true;
 
             $cursos = new CursosModel;
             $data['cursos'] = $cursos -> getLastCursosPublicados();
 
-            $this -> view(['Template/header', 'Cursos/ordenarcursos', 'Template/footer'], $data);
+            $this -> view(['Template/header', 'Talleres/ordenartalleres', 'Template/footer'], $data);
         }
         
         public function ponerOrden()
@@ -86,9 +86,9 @@
 
         public function editar(int $idCurso)
         {
-            $data['page_title'] = 'Editar Curso';
-            $data['page_active'] = 'cursos';
-            $data['page_js'] = 'cursos/editar';
+            $data['page_title'] = 'Editar Taller';
+            $data['page_active'] = 'talleres';
+            $data['page_js'] = 'talleres/editar';
             $data['page_css'] = 'cursos/editar';
             $data['page_swalert'] = true;
             $data['page_sortable'] = true;
@@ -96,9 +96,11 @@
             $cursos = new CursosModel;
             $data['curso'] = $cursos -> getCursoActivosTableById($idCurso);
 
-            if ($data['curso'] == false) {
-                redirect($this -> base_url() . '/cursos');
+            if ($data['curso'] == false || intval($data['curso']['curso_tipo']) !== 1) {
+                redirect($this -> base_url() . '/talleres');
             }
+
+            $data['entity_label'] = 'Taller';
 
             $auxClass = new MaterialModel;
             $data['materiales'] = $auxClass -> getMaterialesByCurso($idCurso);
@@ -747,7 +749,7 @@
                 }
 
                 $newName = date('ynjGis') . rand(100, 999) . '_' . $newName;
-                $newPath = Helper::public_path() . '/assets/admin/images/cursos/' . $newName;
+                $newPath = Helper::public_path() . '/assets/admin/images/talleres/' . $newName;
                 
                 $auxMoveFile = move_uploaded_file($this -> files['data']['tmp_name'], $newPath);
 
@@ -828,7 +830,7 @@
             json($return);
         }
 
-        public function newCurso()
+        public function newTaller()
         {
             $this -> isPost();
 
@@ -840,33 +842,33 @@
                 'type' => 'danger'
             ];
 
-            if (!isset($this -> post['curso']) || 
-            ( isset($this -> post['curso']) && 
-            ( mb_strlen($this -> post['curso']) > 198 || mb_strlen($this -> post['curso']) < 5 || !isAlphaDash($this -> post['curso'], ' ()[]-_.,;:')) ) ) 
+            if (!isset($this -> post['curso']) ||
+            ( isset($this -> post['curso']) &&
+            ( mb_strlen($this -> post['curso']) > 198 || mb_strlen($this -> post['curso']) < 5 || !isAlphaDash($this -> post['curso'], ' ()[]-_.,;:')) ) )
             {
-                $return['message'] = 'Nombre del curso no valido';
+                $return['message'] = 'Nombre del taller no válido';
                 $return['title'] = 'ALERTA';
                 $return['type'] = 'warning';
                 json($return);
             }
-            
-            $nombreCurso = $this -> post['curso'];
+
+            $nombreTaller = $this -> post['curso'];
 
             $cursos = new CursosModel;
-            $insert = $cursos -> value(['curso_nombre' => $nombreCurso, 'curso_tipo' => 0]) -> insert();
+            $insert = $cursos -> value(['curso_nombre' => $nombreTaller, 'curso_tipo' => 1]) -> insert();
 
             if ($insert > 0) {
                 $return['status'] = true;
                 $return['id'] = $insert;
             }
 
-            json($return); 
+            json($return);
         }
 
-        public function getCursosActivos()
+        public function getTalleres()
         {
             $cursos = new CursosModel;
-            $cursosData = $cursos -> getCursosActivosTable();
+            $cursosData = $cursos -> getTalleresActivosTable();
 
             $sinBrochure = '<div class="text-center">No Tiene</div>';
             $estado = [
@@ -893,7 +895,7 @@
             $action = [
                 ' d-block', 
                 '<div class="text-center', 
-                '"> <a href="' . $this -> base_url() . '/cursos/editar/',
+                '"> <a href="' . $this -> base_url() . '/talleres/editar/',
                 '" class="fw-bold text-decoration-none text-primary">Ver Más <i class="fa-solid fa-angles-right"></i></a>
                 </div>'
             ];

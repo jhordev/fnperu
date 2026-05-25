@@ -23,17 +23,9 @@
             $data['icofont'] = true;
 
             $cursos = new CursosModel;
-            $allCursos = $cursos -> getLastCursosPublicados();
-            
-            // Filter: name must contain 'taller' (case-insensitive)
-            $data['talleres'] = array_values(array_filter($allCursos, function($c) {
-                return stripos($c['curso_nombre'], 'taller') !== false;
-            }));
+            $data['talleres'] = $cursos -> getLastTalleresPublicados();
 
-            $cursosConLanzaRaw = $cursos -> getLastCursosPublicadosConPrecio(date('Y-m-d'));
-            $cursosConLanza = array_values(array_filter($cursosConLanzaRaw, function($c) {
-                return stripos($c['curso_nombre'], 'taller') !== false;
-            }));
+            $cursosConLanza = $cursos -> getLastTalleresPublicadosConPrecio(date('Y-m-d'));
 
             $newArrayLanza = array();
             $auxIdCurso = null;
