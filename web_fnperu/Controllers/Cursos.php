@@ -6,6 +6,7 @@
     use ADMINFN\Models\FNPeru\UrbanizationModel;
     use FNPERU\Core\BaseController;
     use ADMINFN\Models\FNPeru\CursosModel;
+    use ADMINFN\Models\FNPeru\InteresModel;
     use ADMINFN\Models\FNPeru\MaterialModel;
     use ADMINFN\Models\FNPeru\ModuloCursoModel;
 
@@ -88,15 +89,16 @@
 
         public function listado()
         {
-            $data['page_title'] = 'Nuestros Cursos';
+            $data['page_title'] = 'Cursos y Talleres';
             $data['page_active'] = 'cursos';
             $data['page_css'] = 'pages/nuestros-cursos';
+            $data['page_js'] = 'cursos/listado';
             $data['icofont'] = true;
 
             $cursos = new CursosModel;
-            $data['cursos'] = $cursos -> getLastCursosPublicados();
+            $data['cursos'] = $cursos -> getTodosPublicados();
 
-            $cursosConLanza = $cursos -> getLastCursosPublicadosConPrecio(date('Y-m-d'));
+            $cursosConLanza = $cursos -> getTodosPublicadosConPrecio(date('Y-m-d'));
             $newArrayLanza = array();
             $auxIdCurso = null;
             $idArrayCursosConLanza = [];
@@ -170,10 +172,6 @@
                 redirect($this -> base_url() . '/#cursos');
             }
 
-            if (stripos($data['curso']['curso_nombre'], 'taller') !== false) {
-                redirect($this -> base_url() . '/talleres/ver/' . $idCurso);
-            }
-
             $dataLanza = $cursos -> getCursoPublicadoConPrecioByIdCurso($idCurso, date('Y-m-d'));
 
             if ($dataLanza != false)
@@ -201,5 +199,63 @@
             $data['page_js'] = 'cursos/ver_curso';
 
             $this -> view(['WebTemplate/header', 'Cursos/detalle_curso', 'WebTemplate/footer'], $data);
+        }
+
+        public function registrarInteres()
+        {
+            $this -> isPost();
+
+            $return = [
+                'status'  => false,
+                'message' => 'Ocurrió un error inesperado',
+                'title'   => 'ERROR',
+                'type'    => 'danger'
+            ];
+
+            if (!isset($this->post['id_curso']) || !isset($this->post['nombre']) || !isset($this->post['email'])) {
+                json($return);
+            }
+
+            $idCurso  = intval(trim($this->post['id_curso']));
+            $nombre   = strip_tags(trim($this->post['nombre']));
+            $email    = trim($this->post['email']);
+            $telefono = strip_tags(trim($this->post['telefono'] ?? ''));
+
+            if ($idCurso <= 0) {
+                json($return);
+            }
+
+            if (strlen($nombre) < 2 || strlen($nombre) > 150) {
+                $return['message'] = 'El nombre debe tener entre 2 y 150 caracteres';
+                $return['title']   = 'ALERTA';
+                $return['type']    = 'warning';
+                json($return);
+            }
+
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL) || strlen($email) > 200) {
+                $return['message'] = 'Ingresa un correo electrónico válido';
+                $return['title']   = 'ALERTA';
+                $return['type']    = 'warning';
+                json($return);
+            }
+
+            $cursosModel = new CursosModel;
+            if ($cursosModel -> getCursoActivosPublicadosTableById($idCurso) == false) {
+                json($return);
+            }
+
+            $interesModel = new InteresModel;
+            $insert = $interesModel -> value([
+                'interes_curso'    => $idCurso,
+                'interes_nombre'   => $nombre,
+                'interes_email'    => $email,
+                'interes_telefono' => ($telefono == '') ? null : $telefono,
+            ]) -> insert();
+
+            if ($insert > 0) {
+                $return['status'] = true;
+            }
+
+            json($return);
         }
     }

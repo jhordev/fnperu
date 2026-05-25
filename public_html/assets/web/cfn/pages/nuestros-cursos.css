@@ -1,3 +1,70 @@
+/* ===== FILTRO BAR ===== */
+.filtro-bar {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.filtro-btn {
+    background: #fff;
+    border: 2px solid #e0e0e0;
+    color: #555;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 9px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all .2s;
+    letter-spacing: .4px;
+    text-transform: uppercase;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.filtro-btn:hover {
+    border-color: #005fff;
+    color: #005fff;
+}
+
+.filtro-btn.active {
+    background: #005fff;
+    border-color: #005fff;
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(0, 95, 255, .28);
+}
+
+/* ===== PAGINATION ===== */
+#cursos_pagination .pagination {
+    gap: 4px;
+}
+
+#cursos_pagination .page-link {
+    border-radius: 8px !important;
+    border: 2px solid #e0e0e0;
+    color: #333;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 7px 14px;
+    transition: all .2s;
+    background: #fff;
+    min-width: 40px;
+    text-align: center;
+}
+
+#cursos_pagination .page-item.active .page-link {
+    background: #005fff;
+    border-color: #005fff;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 95, 255, .3);
+}
+
+#cursos_pagination .page-link:hover:not(.active) {
+    border-color: #005fff;
+    color: #005fff;
+    background: #fff;
+}
+
 /* ===== NUESTROS CURSOS ===== */
 .product-item {
     border: 1px solid #eee;

@@ -83,6 +83,26 @@ class CursosModel extends Model
         return $this->where(['curso_estado' => 1])->orderBy(['curso_creacion' => 'desc'])->findAll();
     }
 
+    public function getTodosPublicados()
+    {
+        return $this->where(['curso_estado' => 1, 'curso_publico' => 1])
+                    ->orderBy(['curso_tipo' => 'asc', 'curso_orden' => 'asc', 'curso_creacion' => 'desc'])
+                    ->findAll();
+    }
+
+    public function getTodosPublicadosConPrecio(string $fechaMaxFin)
+    {
+        $stmt = $this->query('SELECT * FROM cursos
+            INNER JOIN lanzamiento ON lanzamiento.lanzamiento_curso = cursos.curso_id
+            WHERE lanzamiento.lanzamiento_eliminado = 0 AND cursos.curso_estado = 1
+              AND cursos.curso_publico = 1 AND lanzamiento.lanzamiento_fin >= :lanzamiento_fin
+            ORDER BY cursos.curso_tipo ASC, cursos.curso_orden ASC, cursos.curso_id,
+                     lanzamiento.lanzamiento_estado DESC, lanzamiento.lanzamiento_inicio DESC');
+        $stmt->bindValue(':lanzamiento_fin', $fechaMaxFin);
+        $stmt->execute();
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
     public function getTodosActivosTable()
     {
         return $this->where(['curso_estado' => 1])

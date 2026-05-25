@@ -210,6 +210,12 @@
                                 </a>
                             </li>
                             <li>
+                                <a href="<?= $base_url ?>/intereses" class="<?= ($page_active == 'intereses') ? 'mm-active' : '' ?>">
+                                    <i class="metismenu-icon fa-solid fa-bell"></i>
+                                    Intereses de Inscripción
+                                </a>
+                            </li>
+                            <li>
                                 <a href="<?= $base_url ?>/accesosdirectosmoodle" class="<?= ($page_active == 'accesos_directos') ? 'mm-active' : '' ?>">
                                     <i class="metismenu-icon fa-solid fa-compass"></i>
                                     Accesos Directos

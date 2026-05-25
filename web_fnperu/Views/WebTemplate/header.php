@@ -102,11 +102,8 @@
                 <li class="nav-item <?= (isset($page_active) && $page_active == 'urbanizaciones') ? 'active' : '' ?>">
                     <a class="nav-link" href="<?= $base_url ?>/urbanizaciones">Urbanizaciones</a>
                 </li>
-                <li class="nav-item <?= (isset($page_active) && $page_active == 'cursos') ? 'active' : '' ?>">
-                    <a class="nav-link" href="<?= $base_url ?>/cursos">Cursos</a>
-                </li>
-                <li class="nav-item <?= (isset($page_active) && $page_active == 'talleres') ? 'active' : '' ?>">
-                    <a class="nav-link" href="<?= $base_url ?>/talleres">Talleres</a>
+                <li class="nav-item <?= (isset($page_active) && ($page_active == 'cursos' || $page_active == 'talleres')) ? 'active' : '' ?>">
+                    <a class="nav-link" href="<?= $base_url ?>/cursos">Cursos y Talleres</a>
                 </li>
                 <li class="nav-item <?= (isset($page_active) && $page_active == 'nosotros') ? 'active' : '' ?>">
                     <a class="nav-link" href="<?= $base_url ?>/nosotros">Nosotros</a>
@@ -157,16 +154,10 @@
                             <span class="mobile-link-text">Urbanizaciones</span>
                         </a>
                     </li>
-                    <li class="<?= (isset($page_active) && $page_active == 'cursos') ? 'active' : '' ?>">
+                    <li class="<?= (isset($page_active) && ($page_active == 'cursos' || $page_active == 'talleres')) ? 'active' : '' ?>">
                         <a href="<?= $base_url ?>/cursos">
                             <span class="mobile-link-bar"></span>
-                            <span class="mobile-link-text">Cursos</span>
-                        </a>
-                    </li>
-                    <li class="<?= (isset($page_active) && $page_active == 'talleres') ? 'active' : '' ?>">
-                        <a href="<?= $base_url ?>/talleres">
-                            <span class="mobile-link-bar"></span>
-                            <span class="mobile-link-text">Talleres</span>
+                            <span class="mobile-link-text">Cursos y Talleres</span>
                         </a>
                     </li>
                     <li class="<?= (isset($page_active) && $page_active == 'nosotros') ? 'active' : '' ?>">
