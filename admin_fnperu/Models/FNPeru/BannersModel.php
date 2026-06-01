@@ -23,4 +23,13 @@
             $stmt->execute();
             return $stmt->fetchAll(\PDO::FETCH_ASSOC);
         }
+
+        public function getHomeSlot(int $slot): ?array
+        {
+            $stmt = $this->query('SELECT * FROM banners_hero WHERE banner_seccion = 2 AND banner_orden = :s LIMIT 1');
+            $stmt->bindValue(':s', $slot);
+            $stmt->execute();
+            $row = $stmt->fetch(\PDO::FETCH_ASSOC);
+            return $row ?: null;
+        }
     }

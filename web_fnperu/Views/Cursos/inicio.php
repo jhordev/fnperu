@@ -1,3 +1,14 @@
+<?php
+$heroSlideImgs = [0 => null, 2 => null];
+if (!empty($hero_banners_home)) {
+    foreach ($hero_banners_home as $b) {
+        $ord = intval($b['banner_orden']);
+        if ($ord === 0 || $ord === 2) {
+            $heroSlideImgs[$ord] = $assets_url . '/admin/images/banners/' . $b['banner_imagen'];
+        }
+    }
+}
+?>
 <!-- ===== Hero Section ===== -->
 <section class="hero-section">
     <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5500" data-bs-pause="hover">
@@ -6,14 +17,13 @@
         <div class="carousel-indicators hero-indicators">
             <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
 
         <!-- Carousel Inner -->
         <div class="carousel-inner h-100">
 
             <!-- Slide 1 -->
-            <div class="carousel-item active hero-slide hero-slide-fallback">
+            <div class="carousel-item active hero-slide hero-slide-fallback"<?= $heroSlideImgs[0] ? ' style="background-image:url(\'' . htmlspecialchars($heroSlideImgs[0]) . '\')"' : '' ?>>
                 <div class="hero-content">
                     <div class="hero-badge">
                         <i class="fa-solid fa-award"></i>
@@ -53,47 +63,7 @@
             </div>
 
             <!-- Slide 2 -->
-            <div class="carousel-item hero-slide hero-slide-fallback">
-                <div class="hero-content">
-                    <div class="hero-badge">
-                        <i class="fa-solid fa-city"></i>
-                        <span>Líderes en Desarrollo Urbano</span>
-                    </div>
-                    <h1 class="hero-title">
-                        Expertos en Desarrollo Urbano desde <span class="accent">2015</span>
-                    </h1>
-                    <p class="hero-subtitle">
-                        Proyectos que impulsan el crecimiento de la Amazonía peruana con infraestructura de calidad, planificación sostenible y el respaldo de ingenieros especializados.
-                    </p>
-                    <div class="hero-cta-group">
-                        <a href="<?= $base_url ?>/urbanizaciones" class="hero-cta hero-cta-primary">
-                            <i class="fa-solid fa-map-location-dot"></i> Conoce Nuestras Obras
-                        </a>
-                        <a href="https://wa.me/51990252507?text=Hola,%20quiero%20información%20sobre%20urbanizaciones" target="_blank" class="hero-cta hero-cta-secondary">
-                            <i class="fa-brands fa-whatsapp"></i> Contactar Ahora
-                        </a>
-                    </div>
-                    <div class="hero-stats">
-                        <div class="hero-stat">
-                            <span class="hero-stat-number">100%</span>
-                            <span class="hero-stat-label">Compromiso</span>
-                        </div>
-                        <div class="hero-stat-divider"></div>
-                        <div class="hero-stat">
-                            <span class="hero-stat-number">15+</span>
-                            <span class="hero-stat-label">Hectáreas</span>
-                        </div>
-                        <div class="hero-stat-divider"></div>
-                        <div class="hero-stat">
-                            <span class="hero-stat-number">24/7</span>
-                            <span class="hero-stat-label">Soporte</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 3 -->
-            <div class="carousel-item hero-slide hero-slide-escuela">
+            <div class="carousel-item hero-slide hero-slide-escuela"<?= $heroSlideImgs[2] ? ' style="background-image:url(\'' . htmlspecialchars($heroSlideImgs[2]) . '\')"' : '' ?>>
                 <div class="hero-content">
                     <div class="hero-badge">
                         <i class="fa-solid fa-book-open"></i>

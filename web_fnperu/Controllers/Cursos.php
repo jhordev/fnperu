@@ -27,6 +27,9 @@
             $data['page_js'] = 'cursos/inicio';
             $data['icofont'] = true;
 
+            $bannersModel = new BannersModel;
+            $data['hero_banners_home'] = $bannersModel->getActivosBySeccion(2);
+
             $urbanization = new UrbanizationModel();
             $data['urbanization'] = $urbanization -> getLast();
 

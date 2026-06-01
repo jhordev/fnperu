@@ -34,14 +34,20 @@
         /* ── GET: lista para DataTable ── */
         public function getBanners()
         {
-            $seccion = isset($_GET['seccion']) && $_GET['seccion'] === '1' ? 1 : 0;
+            $seccion = intval($_GET['seccion'] ?? 0);
+            if (!in_array($seccion, [0, 1, 2])) { $seccion = 0; }
 
-            $model   = new BannersModel;
-            $rows    = $model->getBySeccion($seccion);
+            $model     = new BannersModel;
+            $rows      = $model->getBySeccion($seccion);
             $assetsUrl = Helper::assets_url();
 
             foreach ($rows as $k => $row) {
-                $rows[$k]['numero']  = $k + 1;
+                if ($seccion === 2) {
+                    $slideNum = $row['banner_orden'] == 0 ? 1 : 3;
+                    $rows[$k]['numero'] = '<span class="badge" style="background:#6f42c1;">Slide ' . $slideNum . '</span>';
+                } else {
+                    $rows[$k]['numero'] = $k + 1;
+                }
                 $rows[$k]['preview'] = '<img src="' . $assetsUrl . '/admin/images/banners/' . htmlspecialchars($row['banner_imagen']) . '" style="height:54px;border-radius:6px;object-fit:cover;" alt="">';
                 $rows[$k]['activo_label'] = $row['banner_activo'] == 1
                     ? '<span class="badge bg-success">Activo</span>'
@@ -173,6 +179,121 @@
                 if (file_exists($filePath)) {
                     @unlink($filePath);
                 }
+                $return['status'] = true;
+            }
+
+            json($return);
+        }
+
+        /* ── GET: 3 slots del Hero Home (seccion=2) ── */
+        public function getHomeSlots()
+        {
+            $model     = new BannersModel;
+            $assetsUrl = Helper::assets_url();
+            $slots     = [];
+
+            foreach ([0, 2] as $s) {
+                $row       = $model->getHomeSlot($s);
+                $slots[$s] = $row ? [
+                    'banner_id'       => $row['banner_id'],
+                    'banner_imagen'   => $row['banner_imagen'],
+                    'banner_creacion' => $row['banner_creacion'],
+                    'preview'         => '<img src="' . $assetsUrl . '/admin/images/banners/' . htmlspecialchars($row['banner_imagen']) . '" style="height:54px;border-radius:6px;object-fit:cover;" alt="">',
+                ] : null;
+            }
+
+            json($slots);
+        }
+
+        /* ── POST: subir/reemplazar slot del Hero Home — sin restricción de tamaño ── */
+        public function subirSlot()
+        {
+            $this->isPost();
+
+            $return = ['status' => false, 'message' => 'Error inesperado', 'title' => 'ERROR', 'type' => 'danger'];
+
+            $slot = intval($this->post['slot'] ?? -1);
+            if ($slot < 0 || $slot > 2) {
+                $return['message'] = 'Slot inválido.';
+                json($return);
+            }
+
+            $f = $this->files['banner_img'] ?? null;
+
+            if (!$f || $f['error'] !== 0 || !in_array($f['type'], ['image/jpeg', 'image/png', 'image/webp']) || intval($f['size']) <= 100) {
+                $return['message'] = 'Archivo no válido. Solo JPG, PNG o WebP.';
+                $return['title']   = 'ALERTA';
+                $return['type']    = 'warning';
+                json($return);
+            }
+
+            if (intval($f['size']) > self::MAX_BYTES) {
+                $return['message'] = 'La imagen supera el límite de 5 MB.';
+                $return['title']   = 'ALERTA';
+                $return['type']    = 'warning';
+                json($return);
+            }
+
+            if (!@getimagesize($f['tmp_name'])) {
+                $return['message'] = 'El archivo no es una imagen válida.';
+                $return['title']   = 'ALERTA';
+                $return['type']    = 'warning';
+                json($return);
+            }
+
+            $model    = new BannersModel;
+            $existing = $model->getHomeSlot($slot);
+
+            if ($existing) {
+                $oldPath = Helper::public_path() . '/assets/admin/images/banners/' . basename($existing['banner_imagen']);
+                if (file_exists($oldPath)) { @unlink($oldPath); }
+                $del = $model->query('DELETE FROM banners_hero WHERE banner_id = :id');
+                $del->bindValue(':id', $existing['banner_id']);
+                $del->execute();
+            }
+
+            $extMap  = ['image/png' => 'png', 'image/webp' => 'webp'];
+            $ext     = $extMap[$f['type']] ?? 'jpg';
+            $newName = date('ynjGis') . rand(100, 999) . '_hero_home_slide' . $slot . '.' . $ext;
+            $newPath = Helper::public_path() . '/assets/admin/images/banners/' . $newName;
+
+            if (!move_uploaded_file($f['tmp_name'], $newPath)) {
+                $return['message'] = 'Error al guardar la imagen.';
+                json($return);
+            }
+
+            $insert = $model->value([
+                'banner_seccion' => 2,
+                'banner_imagen'  => $newName,
+                'banner_orden'   => $slot,
+                'banner_activo'  => 1,
+            ])->insert();
+
+            if ($insert > 0) { $return['status'] = true; }
+
+            json($return);
+        }
+
+        /* ── POST: eliminar slot del Hero Home ── */
+        public function eliminarSlot()
+        {
+            $this->isPost();
+
+            $return = ['status' => false];
+
+            $id  = intval($this->post['banner_id'] ?? 0);
+            $img = $this->post['banner_img'] ?? '';
+
+            if ($id <= 0) { json($return); }
+
+            $model = new BannersModel;
+            $stmt  = $model->query('DELETE FROM banners_hero WHERE banner_id = :id AND banner_seccion = 2');
+            $stmt->bindValue(':id', $id);
+            $stmt->execute();
+
+            if ($stmt->rowCount() === 1) {
+                $filePath = Helper::public_path() . '/assets/admin/images/banners/' . basename($img);
+                if (file_exists($filePath)) { @unlink($filePath); }
                 $return['status'] = true;
             }
 
