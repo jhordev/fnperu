@@ -122,70 +122,37 @@
 
         </div>
 
-        <!-- Mobile Menu -->
-        <div class="navbar-mobile" id="navbarMobile" role="dialog" aria-modal="true" aria-label="Menú de navegación">
-            <div class="mobile-menu-wrapper">
+        <!-- Mobile Dropdown Menu -->
+        <div class="navbar-mobile" id="navbarMobile">
 
-                <!-- Panel Header -->
-                <div class="mobile-panel-head">
-                    <a class="mobile-panel-brand" href="<?= $base_url ?>">
-                        <img src="<?= $assets_url ?>/web/images/logos/LOGO_FN.png" alt="F&N Constructores" draggable="false">
-                        <div class="mobile-panel-brand-text">
-                            <span class="mpb-name"><span class="accent">F&N</span></span>
-                            <span class="mpb-sub">CONSTRUCTORES S.A.C.</span>
-                        </div>
-                    </a>
-                    <button class="mobile-close" id="mobileClose" aria-label="Cerrar menú">
-                        <i class="fa-solid fa-times"></i>
-                    </button>
-                </div>
+            <ul class="mobile-menu">
+                <li class="<?= (isset($page_active) && $page_active == 'inicio') ? 'active' : '' ?>">
+                    <a href="<?= $base_url ?>"><i class="fa-solid fa-house me-2"></i>Inicio</a>
+                </li>
+                <li class="<?= (isset($page_active) && $page_active == 'urbanizaciones') ? 'active' : '' ?>">
+                    <a href="<?= $base_url ?>/urbanizaciones"><i class="fa-solid fa-building me-2"></i>Urbanizaciones</a>
+                </li>
+                <li class="<?= (isset($page_active) && ($page_active == 'cursos' || $page_active == 'talleres')) ? 'active' : '' ?>">
+                    <a href="<?= $base_url ?>/cursos"><i class="fa-solid fa-graduation-cap me-2"></i>Cursos y Talleres</a>
+                </li>
+                <li class="<?= (isset($page_active) && $page_active == 'nosotros') ? 'active' : '' ?>">
+                    <a href="<?= $base_url ?>/nosotros"><i class="fa-solid fa-users me-2"></i>Nosotros</a>
+                </li>
+                <li class="<?= (isset($page_active) && $page_active == 'contactenos') ? 'active' : '' ?>">
+                    <a href="<?= $base_url ?>/contacto"><i class="fa-solid fa-envelope me-2"></i>Contacto</a>
+                </li>
+            </ul>
 
-                <!-- Nav Links -->
-                <ul class="mobile-menu">
-                    <li class="<?= (isset($page_active) && $page_active == 'inicio') ? 'active' : '' ?>">
-                        <a href="<?= $base_url ?>">
-                            <span class="mobile-link-bar"></span>
-                            <span class="mobile-link-text">Inicio</span>
-                        </a>
-                    </li>
-                    <li class="<?= (isset($page_active) && $page_active == 'urbanizaciones') ? 'active' : '' ?>">
-                        <a href="<?= $base_url ?>/urbanizaciones">
-                            <span class="mobile-link-bar"></span>
-                            <span class="mobile-link-text">Urbanizaciones</span>
-                        </a>
-                    </li>
-                    <li class="<?= (isset($page_active) && ($page_active == 'cursos' || $page_active == 'talleres')) ? 'active' : '' ?>">
-                        <a href="<?= $base_url ?>/cursos">
-                            <span class="mobile-link-bar"></span>
-                            <span class="mobile-link-text">Cursos y Talleres</span>
-                        </a>
-                    </li>
-                    <li class="<?= (isset($page_active) && $page_active == 'nosotros') ? 'active' : '' ?>">
-                        <a href="<?= $base_url ?>/nosotros">
-                            <span class="mobile-link-bar"></span>
-                            <span class="mobile-link-text">Nosotros</span>
-                        </a>
-                    </li>
-                    <li class="<?= (isset($page_active) && $page_active == 'contactenos') ? 'active' : '' ?>">
-                        <a href="<?= $base_url ?>/contacto">
-                            <span class="mobile-link-bar"></span>
-                            <span class="mobile-link-text">Contacto</span>
-                        </a>
-                    </li>
-                </ul>
-
-                <!-- Action Buttons -->
-                <div class="mobile-actions">
-                    <?php if (!empty($web_config['campus_virtual_visible'])) { ?>
-                    <a href="<?= $base_url ?>/campus" class="mobile-btn-campus" target="_blank">
-                        <i class="fa-solid fa-graduation-cap"></i> Campus Virtual
-                    </a>
-                    <?php } ?>
-                    <a href="https://wa.me/51<?= preg_replace('/\D/', '', $web_config['contacto_telefono_1'] ?? '990252507') ?>?text=Hola,%20información%20por%20favor" target="_blank" class="mobile-btn-whatsapp">
-                        <i class="fa-brands fa-whatsapp"></i> WhatsApp
-                    </a>
-                </div>
-
+            <div class="mobile-actions">
+                <?php if (!empty($web_config['campus_virtual_visible'])) { ?>
+                <a href="<?= $base_url ?>/campus" class="mobile-btn-campus" target="_blank">
+                    <i class="fa-solid fa-graduation-cap"></i> Campus Virtual
+                </a>
+                <?php } ?>
+                <a href="https://wa.me/51<?= preg_replace('/\D/', '', $web_config['contacto_telefono_1'] ?? '990252507') ?>?text=Hola,%20información%20por%20favor" target="_blank" class="mobile-btn-whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                </a>
             </div>
+
         </div>
     </nav>

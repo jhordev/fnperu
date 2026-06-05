@@ -36,6 +36,12 @@
     background-color: #0e2742;
 }
 
+@media (max-width: 991px) {
+    .mini-hero-section .mini-hero-slide {
+        background-position: left center;
+    }
+}
+
 .mini-hero-section .hero-control {
     position: absolute;
     top: 50%;

@@ -13,38 +13,33 @@ $(document).ready(function () {
     /* --- Mobile menu state --- */
     var toggle     = $("#navbarToggle");
     var mobileMenu = $("#navbarMobile");
-    var mobileClose = $("#mobileClose");
     var isOpen     = false;
 
     function openMenu() {
         isOpen = true;
         mobileMenu.addClass("open");
         toggle.addClass("active").attr("aria-expanded", "true");
-        $("body").css("overflow", "hidden");
     }
 
     function closeMenu() {
         isOpen = false;
         mobileMenu.removeClass("open");
         toggle.removeClass("active").attr("aria-expanded", "false");
-        $("body").css("overflow", "");
     }
 
     toggle.on("click", function () {
         isOpen ? closeMenu() : openMenu();
     });
 
-    mobileClose.on("click", closeMenu);
+    /* Close on any nav link tap */
+    mobileMenu.find("a").on("click", closeMenu);
 
-    /* Close when clicking the dark backdrop (outside the panel) */
-    mobileMenu.on("click", function (e) {
-        if ($(e.target).is(mobileMenu)) {
+    /* Close when clicking outside the navbar */
+    $(document).on("click.mobilemenu", function (e) {
+        if (isOpen && !$(e.target).closest("#navbar").length) {
             closeMenu();
         }
     });
-
-    /* Close on any nav link tap */
-    mobileMenu.find("a").on("click", closeMenu);
 
     /* Close on Escape key */
     $(document).on("keydown.mobilemenu", function (e) {
