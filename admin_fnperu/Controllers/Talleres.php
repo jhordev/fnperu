@@ -101,6 +101,7 @@
             }
 
             $data['entity_label'] = 'Taller';
+            $data['img_folder'] = 'talleres';
 
             $auxClass = new MaterialModel;
             $data['materiales'] = $auxClass -> getMaterialesByCurso($idCurso);

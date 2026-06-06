@@ -53,7 +53,8 @@
                 <?php if ($curso['curso_video_habil'] == 1 && $curso['curso_video'] != ''): ?>
                     <iframe class="w-100" height="315" src="https://www.youtube.com/embed/<?= $curso['curso_video'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <?php else: ?>
-                    <img src="<?= $assets_url ?>/admin/images/cursos/<?= ($curso['curso_img_main'] == '') ? 'sin_imagen.jpg' : $curso['curso_img_main'] ?>" alt="">
+                    <?php $imgFolder = (intval($curso['curso_tipo']) === 1) ? 'talleres' : 'cursos'; ?>
+                    <img src="<?= $assets_url ?>/admin/images/<?= $imgFolder ?>/<?= ($curso['curso_img_main'] == '') ? 'sin_imagen.jpg' : $curso['curso_img_main'] ?>" alt="">
                 <?php endif; ?>
 
             </div>

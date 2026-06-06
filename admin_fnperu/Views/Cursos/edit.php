@@ -184,7 +184,7 @@
 
                             <?php } else { ?>
 
-                                <img class="apartado_view_img" src="<?= $assets_url ?>/admin/images/cursos/<?= $curso['curso_img_main'] ?>" alt="" style="width: 300px">
+                                <img class="apartado_view_img" src="<?= $assets_url ?>/admin/images/<?= isset($img_folder) ? $img_folder : 'cursos' ?>/<?= $curso['curso_img_main'] ?>" alt="" style="width: 300px">
 
                             <?php } ?>
 

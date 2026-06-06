@@ -90,7 +90,8 @@
 
                     <!-- Image wrapper -->
                     <div style="height:250px; overflow:hidden; position:relative; background:#dde0e6;">
-                        <img src="<?= $assets_url ?>/admin/images/cursos/<?= ($value['curso_img_main'] == '') ? 'sin_imagen.jpg' : $value['curso_img_main'] ?>"
+                        <?php $imgFolder = (intval($value['curso_tipo']) === 1) ? 'talleres' : 'cursos'; ?>
+                        <img src="<?= $assets_url ?>/admin/images/<?= $imgFolder ?>/<?= ($value['curso_img_main'] == '') ? 'sin_imagen.jpg' : $value['curso_img_main'] ?>"
                              alt="<?= htmlspecialchars($value['curso_nombre']) ?>"
                              style="width:100%; height:100%; object-fit:cover; object-position:center; display:block;">
 
